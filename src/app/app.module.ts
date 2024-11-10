@@ -10,6 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { CardsOrgComponent } from './cards-org/cards-org.component';
 import { LoginComponent } from './login/login.component';
 import { FormOrgComponent } from './form-org/form-org.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { EventsComponent } from './events/events.component';
+import { EventDonationComponent } from './event-donation/event-donation.component';
+import { MembershipComponent } from './membership/membership.component';
+import { MembershipDonationComponent } from './membership-donation/membership-donation.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { FormOrgComponent } from './form-org/form-org.component';
     HomeComponent,
     CardsOrgComponent,
     LoginComponent,
-    FormOrgComponent
+    FormOrgComponent,
+    CreateEventComponent,
+    EventsComponent,
+    EventDonationComponent,
+    MembershipComponent,
+    MembershipDonationComponent
   ],
   imports: [
     BrowserModule,
