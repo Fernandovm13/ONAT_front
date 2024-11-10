@@ -1,78 +1,95 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Organización - ONAT</title>
-    <link rel="stylesheet" href="form-org.component.css">
-</head>
-<body>
+<main class="main-content">
+  <div class="container">
+    <div class="registration-header">
+      <h1>¿Eres una organización?</h1>
+      <h2>¡ÚNETE AHORA!</h2>
+    </div>
 
-    <main class="main-content">
-        <div class="container">
-            <div class="registration-header">
-                <h1>¿Eres una organización?</h1>
-                <h2>¡ÚNETE AHORA!</h2>
+    <form [formGroup]="orgForm" (ngSubmit)="onSubmit()" class="registration-form">
+      <div class="form-grid">
+        <div class="form-column">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" required />
+          </div>
+
+          <div class="form-group">
+            <label for="codigo_postal">Código postal:</label>
+            <input
+              type="text"
+              id="codigo_postal"
+              formControlName="cp"
+              (input)="getPostalData(orgForm.get('cp')?.value)"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input
+              type="text"
+              id="estado"
+              formControlName="estado"
+              readonly
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="municipio">Municipio:</label>
+            <input
+              type="text"
+              id="municipio"
+              formControlName="municipio"
+              readonly
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="colonia">Colonias:</label>
+            <select id="colonias" formControlName="colonia">
+              <option *ngFor="let col of colonias" [value]="col">{{ col }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" formControlName="direccion" required />
+          </div>
+
+          <div class="form-group">
+            <label>Sube una imagen no mayor a 30 MB</label>
+            <div class="upload-area">
+              <input type="file" formControlName="imagen" accept="image/*" />
             </div>
-
-            <form class="registration-form">
-                <div class="form-grid">
-                    <div class="form-column">
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="estado">Estado:</label>
-                            <input type="text" id="estado" name="estado" value="Chiapas, México." readonly required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="direccion">Dirección:</label>
-                            <input type="text" id="direccion" name="direccion" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Sube una imagen no mayor a 30mb</label>
-                            <div class="upload-area">
-                                <img src="icono6.png" alt="Upload" class="upload-icon">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-column">
-                        <div class="form-group">
-                            <label for="correo">Correo:</label>
-                            <input type="email" id="correo" name="correo" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="telefono">Teléfono:</label>
-                            <input type="tel" id="telefono" name="telefono" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="rfc">RFC:</label>
-                            <input type="text" id="rfc" name="rfc" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Crea una contraseña:</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirm-password">Repite la contraseña:</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-submit">UNIRME</button>
-                    </div>
-                </div>
-            </form>
+          </div>
         </div>
-    </main>
 
-</body>
-</html>
+        <div class="form-column">
+          <div class="form-group">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" formControlName="correo" required />
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" formControlName="telefono" required />
+          </div>
+
+          <div class="form-group">
+            <label for="rfc">RFC:</label>
+            <input type="text" id="rfc" formControlName="rfc" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Crea una contraseña:</label>
+            <input type="password" id="password" formControlName="contraseña" required />
+          </div>
+
+          <button type="submit" class="btn btn-submit" [disabled]="!orgForm.valid">UNIRME</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://api.tau.com.mx",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
