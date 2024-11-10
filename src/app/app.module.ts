@@ -4,13 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ContactComponent } from './contact/contact.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { CardsOrgComponent } from './cards-org/cards-org.component';
-import { LoginComponent } from './login/login.component';
-import { FormOrgComponent } from './form-org/form-org.component';
-
+import { UserModule } from './users/login/user.module';
+import { OrganizacionesModule } from './organizaciones/organizaciones.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +16,11 @@ import { FormOrgComponent } from './form-org/form-org.component';
     ContactComponent,
     FooterComponent,
     HomeComponent,
-    CardsOrgComponent,
-    LoginComponent,
-    FormOrgComponent
   ],
   imports: [
     BrowserModule,
+    UserModule,
+    OrganizacionesModule,
     AppRoutingModule
   ],
   providers: [],
