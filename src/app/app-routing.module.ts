@@ -9,6 +9,8 @@ import { EventsComponent } from './events/events.component';
 import { EventDonationComponent } from './event-donation/event-donation.component';
 import { MembershipComponent } from './membership/membership.component';
 import { MembershipDonationComponent } from './membership-donation/membership-donation.component';
+import { DirectDonationComponent } from './direct-donation/direct-donation.component';
+import { DonationHistoryComponent } from './donation-history/donation-history.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,8 +21,9 @@ const routes: Routes = [
   {path: 'events', component: EventsComponent},
   {path: 'eventdonation', component: EventDonationComponent},
   {path: 'membership', component: MembershipComponent},
-  {path: 'membershipdonation',  component: MembershipDonationComponent}
-
+  {path: 'membershipdonation',  component: MembershipDonationComponent},
+  {path: 'directdonation', component: DirectDonationComponent},
+  {path: 'historydonation', component: DonationHistoryComponent}
 ];
 
 @NgModule({

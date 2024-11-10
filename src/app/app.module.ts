@@ -15,6 +15,8 @@ import { EventsComponent } from './events/events.component';
 import { EventDonationComponent } from './event-donation/event-donation.component';
 import { MembershipComponent } from './membership/membership.component';
 import { MembershipDonationComponent } from './membership-donation/membership-donation.component';
+import { DirectDonationComponent } from './direct-donation/direct-donation.component';
+import { DonationHistoryComponent } from './donation-history/donation-history.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MembershipDonationComponent } from './membership-donation/membership-do
     EventsComponent,
     EventDonationComponent,
     MembershipComponent,
-    MembershipDonationComponent
+    MembershipDonationComponent,
+    DirectDonationComponent,
+    DonationHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -21,12 +21,12 @@ body {
   }
   
   .btn-donate {
-    background-color: #F4A261;
+    background-color: #E5863A;
     color: white;
   }
   
   .btn-donate:hover {
-    background-color: #E76F51;
+    background-color: #e4a62a;
   }
 
 .container.header-content {

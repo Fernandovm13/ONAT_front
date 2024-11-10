@@ -28,15 +28,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.btn-donate {
-    background-color: #e63946; 
-    color: #fff;
-}
-
-.btn-donate:hover {
-    background-color: #E76F51;
-}
-
 /* Main Content Styles */
 .main-content {
     flex: 1;
@@ -104,7 +95,7 @@ h1 {
 
 .btn-login {
     width: 100%;
-    background-color: #F4A261; 
+    background-color: #E7AF3E; 
     color: #fff;
     font-size: 1.1em;
     padding: 15px;
@@ -112,7 +103,7 @@ h1 {
 }
 
 .btn-login:hover {
-    background-color: #E76F51;
+    background-color: #e4a62a;
 }
 
 /* Responsive Styles */

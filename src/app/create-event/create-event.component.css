@@ -163,8 +163,8 @@ h2 {
 /* Button Styles */
 .btn-create {
     width: 100%;
-    background-color: #ff7f50; 
-    color: #ffffff; 
+    background-color: #E7AF3E; 
+    color: black; 
     font-size: 1.1em;
     padding: 15px;
     margin-top: 20px;
@@ -198,8 +198,8 @@ h2 {
 }
 
 .btn-history {
-    background-color: #ff7f50; 
-    color: #ffffff; 
+    background-color: #E7AF3E; 
+    color: black; 
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -209,7 +209,7 @@ h2 {
 .lock-icon {
     width: 20px;
     height: 20px;
-    background-image: url('/public/icono9.png');
+    background-image: url('/icono9.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -250,5 +250,5 @@ textarea:focus {
 /* Button Hover States */
 .btn-create:hover,
 .btn-history:hover {
-    background-color: #E76F51;
+    background-color: #e4a62a;
 }
