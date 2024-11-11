@@ -11,6 +11,7 @@ import { CardsOrgComponent } from './cards-org/cards-org.component';
 import { LoginComponent } from './login/login.component';
 import { FormOrgComponent } from './form-org/form-org.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,95 +1,147 @@
 <main class="main-content">
-  <div class="container">
-    <div class="registration-header">
-      <h1>¿Eres una organización?</h1>
-      <h2>¡ÚNETE AHORA!</h2>
-    </div>
-
-    <form [formGroup]="orgForm" (ngSubmit)="onSubmit()" class="registration-form">
-      <div class="form-grid">
-        <div class="form-column">
-          <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" formControlName="nombre" required />
-          </div>
-
-          <div class="form-group">
-            <label for="codigo_postal">Código postal:</label>
-            <input
-              type="text"
-              id="codigo_postal"
-              formControlName="cp"
-              (input)="getPostalData(orgForm.get('cp')?.value)"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="estado">Estado:</label>
-            <input
-              type="text"
-              id="estado"
-              formControlName="estado"
-              readonly
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="municipio">Municipio:</label>
-            <input
-              type="text"
-              id="municipio"
-              formControlName="municipio"
-              readonly
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="colonia">Colonias:</label>
-            <select id="colonias" formControlName="colonia">
-              <option *ngFor="let col of colonias" [value]="col">{{ col }}</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" formControlName="direccion" required />
-          </div>
-
-          <div class="form-group">
-            <label>Sube una imagen no mayor a 30 MB</label>
-            <div class="upload-area">
-              <input type="file" formControlName="imagen" accept="image/*" />
+    <div class="container">
+      <div class="registration-header">
+        <h1>¿Eres una organización?</h1>
+        <h2>¡ÚNETE AHORA!</h2>
+      </div>
+  
+      <form class="registration-form" (ngSubmit)="onSubmit()"enctype="multipart/form-data">
+        <div class="form-grid">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                [(ngModel)]="nombre"
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="codigo_postal">Código postal:</label>
+              <input
+                type="text"
+                id="codigo_postal"
+                name="codigo_postal"
+                [(ngModel)]="cp"
+                (change)="getPostalData(cp)"
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="estado">Estado:</label>
+              <input
+                type="text"
+                id="estado"
+                name="estado"
+                [(ngModel)]="estado"
+                readonly
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="municipio">Municipio:</label>
+              <input
+                type="text"
+                id="municipio"
+                name="municipio"
+                [(ngModel)]="municipio"
+                readonly
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="colonia">Colonias:</label>
+              <select
+                id="colonias"
+                name="colonia"
+                [(ngModel)]="colonia"
+                required
+              >
+                <option *ngFor="let col of colonias" [value]="col">{{ col }}</option>
+              </select>
+            </div>
+  
+            <div class="form-group">
+              <label for="direccion">Dirección:</label>
+              <input
+                type="text"
+                id="direccion"
+                name="direccion"
+                [(ngModel)]="direccion"
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label>Sube una imagen no mayor a 30MB</label>
+              <div class="upload-area">
+                <input
+                  type="file"
+                  (change)="onFileChange($event)"
+                  accept="image/*"
+                  id="image"
+                  name="imagen"
+                />
+                <img src="icono6.png" alt="Upload" class="upload-icon" />
+              </div>
             </div>
           </div>
+  
+          <div class="form-column">
+            <div class="form-group">
+              <label for="correo">Correo:</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                [(ngModel)]="correo"
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                [(ngModel)]="telefono"
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="rfc">RFC:</label>
+              <input
+                type="text"
+                id="rfc"
+                name="rfc"
+                [(ngModel)]="rfc"
+                required
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="password">Crea una contraseña:</label>
+              <input
+                type="password"
+                id="contraseña"
+                name="contraseña"
+                [(ngModel)]="contrasena"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-submit">UNIRME</button>
+          </div>
         </div>
-
-        <div class="form-column">
-          <div class="form-group">
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" formControlName="correo" required />
-          </div>
-
-          <div class="form-group">
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" formControlName="telefono" required />
-          </div>
-
-          <div class="form-group">
-            <label for="rfc">RFC:</label>
-            <input type="text" id="rfc" formControlName="rfc" required />
-          </div>
-
-          <div class="form-group">
-            <label for="password">Crea una contraseña:</label>
-            <input type="password" id="password" formControlName="contraseña" required />
-          </div>
-
-          <button type="submit" class="btn btn-submit" [disabled]="!orgForm.valid">UNIRME</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</main>
+      </form>
+    </div>
+  </main>
+  

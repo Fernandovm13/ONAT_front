@@ -1,5 +1,4 @@
 export interface Organization {
-valid: any;
     id: number;
   nombre: string;
   correo: string;
@@ -10,6 +9,6 @@ valid: any;
   direccion: string;
   rfc: string;
   telefono: string;
-  contraseña: string;
-  imagen: File | null;
+  contrasena: string;
+  imagen: File | null ;
 }
