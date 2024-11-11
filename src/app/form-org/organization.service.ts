@@ -16,8 +16,8 @@ export class OrganizacionService {
     return this.http.post<Organization>(`${this.baseUrl}/crear_org`, data);
   }
 
-  loginOrganizacion(login: Organization): Observable<Organization> {
-    return this.http.post<Organization>(`${this.baseUrl}/login`, login);
+  loginOrganizacion(login: Organization): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/login`, login);
   }
 
   getToken(): string | null {
