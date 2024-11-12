@@ -114,16 +114,16 @@ body {
 .join-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 10px;
     background-color: #B2D5F1; 
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 1px;
 }
 
 .join-image {
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
 }
 
 .join-image img {
@@ -133,7 +133,7 @@ body {
 }
 
 .join-content {
-    padding: 40px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -154,7 +154,7 @@ body {
 .btn-join {
     background-color: #E7AF3E; 
     color: black;
-    padding: 15px 40px;
+    padding: 10px 10px;
     font-size: 1.2em;
 }
 
