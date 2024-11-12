@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Organización - ONAT</title>
+    <link rel="stylesheet" href="form-org.component.css">
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="registration-header">
+                <h1>¿Eres una organización?</h1>
+                <h2>¡ÚNETE AHORA!</h2>
+            </div>
+
+            <form class="registration-form">
+                <div class="form-grid">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <input type="text" id="estado" name="estado" value="Chiapas, México." readonly required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sube una imagen no mayor a 30mb</label>
+                            <div class="upload-area">
+                                <img src="icono6.png" alt="Upload" class="upload-icon">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="correo">Correo:</label>
+                            <input type="email" id="correo" name="correo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rfc">RFC:</label>
+                            <input type="text" id="rfc" name="rfc" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Crea una contraseña:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password">Repite la contraseña:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit">UNIRME</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
