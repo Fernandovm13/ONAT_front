@@ -1,15 +1,12 @@
-  <!-- Main Content -->
   <main class="main">
     <div class="container">
     <link rel="stylesheet" href="cards-org.component.css">
       <div class="title-section">
         <h1>Organizaciones Benéficas</h1>
-        <button class="btn btn-login" routerLink="/login">Inicia sesión</button>
-    </div>
+        <button class="btn btn-login" href="/login" (click)="navigateTo('/login')">Inicia sesión</button>
+      </div>
 
-      <!-- Organizations Grid -->
       <div class="organizations-grid">
-        <!-- Organization Card 1 -->
         <div class="org-card">
           <img src="imagen3.png" alt="Manos Unidas Logo" class="org-logo">
           <h2 class="org-name">Nombre</h2>
@@ -22,7 +19,6 @@
           </div>
         </div>
 
-        <!-- Organization Card 2 -->
         <div class="org-card">
           <img src="imagen3.png" alt="Manos Unidas Logo" class="org-logo">
           <h2 class="org-name">Nombre</h2>
@@ -35,7 +31,6 @@
           </div>
         </div>
 
-        <!-- Organization Card 3 -->
         <div class="org-card">
           <img src="imagen3.png" alt="Manos Unidas Logo" class="org-logo">
           <h2 class="org-name">Nombre</h2>
@@ -49,7 +44,6 @@
         </div>
       </div>
 
-      <!-- Join Section -->
       <div class="join-section">
         <div class="join-image">
           <img src="imagen4.png" alt="Equipo de voluntarios">
@@ -57,7 +51,7 @@
         <div class="join-content">
           <h2>¿Eres una organización?</h2>
           <h3>¡ÚNETE AHORA!</h3>
-          <button class="btn btn-join" routerLink="/formorg">UNIRME</button>
+          <button class="btn btn-join" href="/formorg" (click)="navigateTo('/formorg')">UNIRME</button>
         </div>
       </div>
     </div>

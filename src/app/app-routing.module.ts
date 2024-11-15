@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CardsOrgComponent } from './cards-org/cards-org.component';
-import { LoginComponent } from './login/login.component';
-import { FormOrgComponent } from './form-org/form-org.component';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { EventsComponent } from './events/events.component'; 
-import { EventDonationComponent } from './event-donation/event-donation.component';
-import { MembershipComponent } from './membership/membership.component';
-import { MembershipDonationComponent } from './membership-donation/membership-donation.component';
-import { DirectDonationComponent } from './direct-donation/direct-donation.component';
-import { DonationHistoryComponent } from './donation-history/donation-history.component';
+import { CardsOrgComponent } from './shared/cards-org/cards-org.component';
+import { LoginComponent } from './auth/login/login.component';
+import { FormOrgComponent } from './org/form-org/form-org.component';
+import { CreateEventComponent } from './event/create-event/create-event.component';
+import { EventsComponent } from './event/events/events.component'; 
+import { EventDonationComponent } from './event/event-donation/event-donation.component';
+import { MembershipComponent } from './org/membership/membership.component';
+import { MembershipDonationComponent } from './donation/membership-donation/membership-donation.component';
+import { DirectDonationComponent } from './donation/direct-donation/direct-donation.component';
+import { DonationHistoryComponent } from './donation/donation-history/donation-history.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

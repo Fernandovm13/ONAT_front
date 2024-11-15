@@ -1,50 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ContactComponent } from './contact/contact.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { CardsOrgComponent } from './cards-org/cards-org.component';
-import { LoginComponent } from './login/login.component';
-import { FormOrgComponent } from './form-org/form-org.component';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { EventsComponent } from './events/events.component';
-import { EventDonationComponent } from './event-donation/event-donation.component';
-import { MembershipComponent } from './membership/membership.component';
-import { MembershipDonationComponent } from './membership-donation/membership-donation.component';
-import { DirectDonationComponent } from './direct-donation/direct-donation.component';
-import { DonationHistoryComponent } from './donation-history/donation-history.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 
+
+import { AuthModule } from './auth/auth.module';
+import { OrgModule } from './org/org.module';
+import { EventModule } from './event/event.module';
+import { DonationModule } from './donation/donation.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    ContactComponent,
-    FooterComponent,
-    HomeComponent,
-    CardsOrgComponent,
-    LoginComponent,
-    FormOrgComponent,
-    CreateEventComponent,
-    EventsComponent,
-    EventDonationComponent,
-    MembershipComponent,
-    MembershipDonationComponent,
-    DirectDonationComponent,
-    DonationHistoryComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
-    FormsModule
+    AuthModule,    
+    OrgModule,
+    EventModule,
+    DonationModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
