@@ -6,22 +6,26 @@
                 <h2>¡ÚNETE AHORA!</h2>
             </div>
 
-            <form class="registration-form">
+            <form class="registration-form" [formGroup]="orgForm" (ngSubmit)="agregarOrg()">
                 <div class="form-grid">
                     <div class="form-column">
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
+                            <input type="text" formControlName="nombre" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cp">Codigo Postal:</label>
+                              <input type="text" formControlName="cp" id="cp" (change)="validarCP($event)" required>
                         </div>
 
                         <div class="form-group">
                             <label for="estado">Estado:</label>
-                            <input type="text" id="estado" name="estado" value="Chiapas, México." readonly required>
+                            <input type="text" formControlName="estado" name="estado" value="Chiapas, México." readonly required>
                         </div>
 
                         <div class="form-group">
                             <label for="direccion">Dirección:</label>
-                            <input type="text" id="direccion" name="direccion" required>
+                            <input type="text"formControlName="direccion" name="direccion" required>
                         </div>
 
                         <div class="form-group">
@@ -35,30 +39,38 @@
                     <div class="form-column">
                         <div class="form-group">
                             <label for="correo">Correo:</label>
-                            <input type="email" id="correo" name="correo" required>
+                            <input type="email" formControlName="correo" id="correo" required>
                         </div>
 
                         <div class="form-group">
                             <label for="telefono">Teléfono:</label>
-                            <input type="tel" id="telefono" name="telefono" required>
+                            <input type="tel" formControlName="telefono" name="telefono" required>
                         </div>
 
                         <div class="form-group">
                             <label for="rfc">RFC:</label>
-                            <input type="text" id="rfc" name="rfc" required>
+                            <input type="text" formControlName="rfc" name="rfc" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="municipio">municipio:</label>
+                            <input type="text" formControlName="municipio" name="municipio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="colonia">colonia:</label>
+                            <input type="text" formControlName="colonia" name="colonia" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Crea una contraseña:</label>
-                            <input type="password" id="password" name="password" required>
+                            <label for="contrasena">Crea una contraseña:</label>
+                            <input type="contrasena" formControlName="contrasena" name="contrasena" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="confirm-password">Repite la contraseña:</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required>
+                            <label for="confirm-contrasena">Repite la contraseña:</label>
+                            <input type="contrasena" name="confirm-contrasena" required>
                         </div>
 
-                        <button type="submit" class="btn btn-submit">UNIRME</button>
+                        <button type="submit"  class="btn btn-submit">UNIRME</button>
                     </div>
                 </div>
             </form>

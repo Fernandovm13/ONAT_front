@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { OrganizacionService } from '../form-org/organization.service';
-import { Organization } from '../form-org/organization';
 
+
+import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
