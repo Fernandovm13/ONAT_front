@@ -9,30 +9,27 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module';
 import { OrgModule } from './org/org.module';
-import { EventModule } from './event/event.module';
 import { DonationModule } from './donation/donation.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './components/SharedModule.module';
+import { EventsPageModule } from './events-page/events-page.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    // UserModule,
     RouterOutlet,
     // OrganizacionesModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AuthModule,    
+    AuthModule,
     OrgModule,
-    EventModule,
     DonationModule,
-    SharedModule
+    EventsPageModule,
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

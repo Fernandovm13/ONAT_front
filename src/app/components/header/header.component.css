@@ -1,13 +1,10 @@
 .navbar {
   width: 100%;
   background-color: #5DB0E6;
-  padding: 0.5rem 1rem; /* Agrega padding para mejor presentación */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.conteiner-nav {
-  max-width: 1200px; /* Limita el ancho máximo */
-  margin: 0 auto; /* Centra el contenido */
+.container-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +12,7 @@
 
 .navbar-nav {
   list-style: none;
-  display: flex;
+  display: flex; 
   margin: 0;
   padding: 0;
 }
@@ -51,8 +48,8 @@
 }
 
 .nav-link-button:hover {
-  background-color: #e67e22; /* Un tono más oscuro para el hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra al pasar el cursor */
+  background-color: #e67e22;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {

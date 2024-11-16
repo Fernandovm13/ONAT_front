@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventDonationComponent } from './event-donation/event-donation.component';
-import { EventsComponent } from './events/events.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 import { EventsPageComponent } from './events-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { CreateEventComponent } from './create-event/create-event.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     EventDonationComponent,
-    EventsComponent,
+    CreateEventComponent,
     EventsPageComponent,
     CreateEventComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
 })
 export class EventsPageModule {}

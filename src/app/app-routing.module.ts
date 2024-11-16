@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CardsOrgComponent } from './shared/cards-org/cards-org.component';
+import { CardsOrgComponent } from './organizaciones/cards-org/cards-org.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FormOrgComponent } from './org/form-org/form-org.component';
-import { CreateEventComponent } from './event/create-event/create-event.component';
-import { EventsComponent } from './event/events/events.component';
-import { EventDonationComponent } from './event/event-donation/event-donation.component';
+import { CreateEventComponent } from './events-page/create-event/create-event.component';
+import { EventsComponent } from './events-page/events/events.component';
+import { EventDonationComponent } from './events-page/event-donation/event-donation.component';
 import { MembershipComponent } from './org/membership/membership.component';
 import { MembershipDonationComponent } from './donation/membership-donation/membership-donation.component';
 import { DirectDonationComponent } from './donation/direct-donation/direct-donation.component';

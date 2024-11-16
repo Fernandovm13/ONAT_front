@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
+import { RouterModule } from '@angular/router';
 import { CardsOrgComponent } from './cards-org/cards-org.component';
 
 @NgModule({
@@ -10,16 +11,14 @@ import { CardsOrgComponent } from './cards-org/cards-org.component';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
-    CardsOrgComponent
+    CardsOrgComponent,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule, RouterModule],
   exports: [
     HeaderComponent,
     FooterComponent,
     ContactComponent,
-    CardsOrgComponent
-  ]
+    CardsOrgComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

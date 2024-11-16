@@ -1,58 +1,85 @@
 
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-donate {
-    background-color: #E5863A;
-    color: white;
-  }
-  
-  .btn-donate:hover {
-    background-color: #e4a62a;
-  }
-
 .container.contact-content {
-    background-color: #5DB0E6;
-    color: white;
-    padding: 50px 10px;
-    margin: 20px 10px;
-  }
-  
-  .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-  
-  .contact-info .logo {
-    margin-bottom: 20px;
-  }
-  
-  .contact h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .icon {
-    font-size: 1.5em;
-  }
+  background-color: #5DB0E6;
+  color: #333;
+  padding: 50px 10px;
+  margin: 20px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  border-radius: 10px;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info .logo {
+  margin-bottom: 20px;
+  width: 100px;
+  height: auto;
+}
+
+.contact-info p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #333;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.contact-details {
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+.contact-form h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-donate {
+  background-color: #E5863A;
+  color: white;
+  font-size: 1.2em;
+  padding: 15px 30px;
+}
+
+.btn-donate:hover {
+  background-color: #e4a62a;
+}

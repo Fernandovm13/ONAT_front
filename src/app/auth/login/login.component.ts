@@ -1,24 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { OrganizacionService } from '../../org/form-org/organization.service';
-import { Organization } from '../../org/form-org/organization';
 
+
+import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit { 
+export class LoginComponent implements OnInit{ 
 
   loginForm!: FormGroup;
 
-  constructor(
-    private orgService: OrganizacionService, 
-    private fb: FormBuilder,
-    private router: Router
-  ) {}
+  constructor(private orgService: OrganizacionService, private fb: FormBuilder){}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -34,18 +28,12 @@ export class LoginComponent implements OnInit {
         response => {
           console.log('Login exitoso', response);
           localStorage.setItem('authToken', response.token);
-          this.navigateTo('/createevent');  
         },
         error => {
           console.error('Error al iniciar sesión', error);
           alert('Error al iniciar sesión. Verifique sus credenciales');
         }
-      );
+      )
     }
-  }
-
-  navigateTo(route: string): boolean {
-    this.router.navigateByUrl(route);
-    return false; 
   }
 }
