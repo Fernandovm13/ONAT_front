@@ -1,0 +1,19 @@
+{
+    "/api": {
+      "target": "https://api.tau.com.mx",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    },
+    "/api_pg": {
+      "target":"http://127.0.0.1:5000",
+      "secure": false,
+      "pathRewrite": {
+        "^/api_pg": ""
+      },
+      "changeOrigin": true
+    }
+  }
+  

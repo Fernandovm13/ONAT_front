@@ -21,11 +21,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/onat-frontend",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -72,7 +72,8 @@
               "buildTarget": "onat-frontend:build:production"
             },
             "development": {
-              "buildTarget": "onat-frontend:build:development"
+              "buildTarget": "onat-frontend:build:development",
+              "proxyConfig": "proxy.conf.json"  
             }
           },
           "defaultConfiguration": "development"
@@ -102,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

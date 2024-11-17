@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia sesión - ONAT</title>
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>Inicia sesión</h1>
+        
+        <div class="login-container">
+            <div class="login-image">
+                <img src="imagen2.png" alt="Voluntario con caja de alimentos" class="volunteer-img">
+            </div>
+            
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" formControlName="correo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" formControlName="contrasena" required>
+                </div>
+                
+                <button type="submit" class="btn btn-login">INICIAR</button>
+            </form>
+        </div>
+    </main>
+
+    </body>
+</html>

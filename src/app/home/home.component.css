@@ -1,9 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
+
   
   .container {
     max-width: 1200px;
@@ -34,51 +29,52 @@ body {
 .hero {
   background-color: #77B8E8;
   color: white;
-  padding: 60px;
+  padding: 10px;
   margin: 10px;
   border-radius: 10px; 
+  overflow: hidden;
+  display: grid;
 }
 
 .hero-content {
-  display:flex;
-  grid-template-columns:2fr 1fr; 
-  gap: 100px; 
-  align-items: center;
+  display:grid;
+  justify-content: center;
+  align-items: flex-end;
+  padding: .001px;
+  display: flex
 }
 
 .hero h1 {
   font-size: 2.2em;
-  margin-bottom: 20px;
+  margin-bottom: 90px;
   color: white;
 }
 
 .hero p {
   font-size: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .hero-contact {
-  margin-top: 10px;
+  margin-left: 360px;
   display: flex;
-  gap: 10px;
+  gap: 80px;
 }
 
-.hero-image {
-  display: flex;
-  justify-content: flex-end; 
-}
+
 
 .hero-image img {
-  width: 400px;
-  height: 400px;
-  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+  border-radius: 2px;
+object-fit: cover;
 }
 
   
   /* About Us Section Styles */
   .about-us {
-    padding: 10px;
-    margin: 10px;
+    padding: 1px;
+    margin: 1px;
   }
   
   .about-us h2 {
@@ -102,8 +98,9 @@ body {
   /* How We Work Section Styles */
   .how-we-work {
     background-color: #B2D5F1;
-    padding: 60px 0;
+    padding: 10px 0;
     margin: 10px;
+    border-radius: 10px;
   }
   
   .how-we-work h2 {

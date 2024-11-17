@@ -1,0 +1,135 @@
+<main class="main-content">
+  <link rel="stylesheet" href="create-event.component.css" />
+  <div class="container">
+    <h1>Crea un evento</h1>
+    <h2>¡CREA TU EVENTO AHORA!</h2>
+
+    <form
+      class="event-form"
+      [formGroup]="eventsForm"
+      (ngSubmit)="agregarEvento()"
+    >
+      <div class="form-grid">
+        <div class="form-column">
+          <div class="form-group">
+            <label for="nombreEvento">Nombre del evento:</label>
+            <input
+              type="text"
+              formControlName="nombreEvento"
+              name="nombreEvento"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input
+              type="text"
+              formControlName="direccion"
+              name="direccion"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <div class="input-icon">
+              <input
+                type="date"
+                formControlName="fecha"
+                name="fecha"
+                required
+              />
+              <span class="icon calendar-icon"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hora-inicio">Hora de inicio:</label>
+            <div class="input-icon">
+              <input
+                type="time"
+                formControlName="horaInicio"
+                name="horaInicio"
+                required
+              />
+              <span class="icon clock-icon"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hora-termino">Hora de termino:</label>
+            <div class="input-icon">
+              <input
+                type="time"
+                formControlName="horaFinal"
+                name="horaFinal"
+                required
+              />
+              <span class="icon clock-icon"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea
+              formControlName="descripcion"
+              name="descripcion"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-column">
+          <!-- <div class="form-group">
+                            <label>Sube una imagen no mayor a 1GB</label>
+                            <div class="upload-area">
+                                <img src="icono6.png" alt="Upload" class="upload-icon">
+                            </div>
+                        </div> -->
+
+          <!-- <div class="form-group">
+                            <label>Selecciona los productos que puedes recibir:</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="productos" value="atun">
+                                    <span>Atún</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="productos" value="frijol">
+                                    <span>Frijol</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="productos" value="arroz">
+                                    <span>Arroz</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="productos" value="sopas">
+                                    <span>Sopas/Pasta</span>
+                                </label>
+                            </div>
+                        </div> -->
+
+          <button type="submit" class="btn btn-create">CREAR</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="history-section">
+      <div class="history-content">
+        <img
+          src="imagen5.png"
+          alt="Voluntarios con donaciones"
+          class="history-image"
+        />
+        <div class="history-text">
+          <h2>¿Quieres ver quien te dono?</h2>
+          <button class="btn btn-history" routerLink="/historydonation">
+            VER HISTORIAL
+            <span class="lock-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
