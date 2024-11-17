@@ -1,22 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DirectDonationComponent } from './direct-donation/direct-donation.component';
-import { DonationHistoryComponent } from './donation-history/donation-history.component';
 import { MembershipDonationComponent } from './membership-donation/membership-donation.component';
-
+import { MembershipComponent } from './membership/membership.component';
 @NgModule({
-  declarations: [
-    DirectDonationComponent,
-    DonationHistoryComponent,
-    MembershipDonationComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    DirectDonationComponent,
-    DonationHistoryComponent,
-    MembershipDonationComponent
-  ]
+  declarations: [DirectDonationComponent, MembershipDonationComponent, MembershipComponent],
+  imports: [CommonModule],
 })
-export class DonationModule { }
+export class DonationModule {}

@@ -18,11 +18,24 @@ export class CreateEventComponent {
       horaFinal: ['', Validators.required],
       direccion: ['', Validators.required],
       descripcion: ['', Validators.required],
+      idOrg: ['', ],
     });
   }
 
   agregarEvento() {
     if (this.eventsForm.valid) {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        const decodedToken = this.decodeToken(token);
+        const orgId = decodedToken.sub;
+        this.eventsForm.patchValue({
+          idOrg: orgId,
+        });
+        console.log(this.eventsForm.value)
+        console.log(orgId)
+      
+      }
+
       this.eventsService.CrearEvento(this.eventsForm.value).subscribe(
         (response: EventsPage) => {
           console.log('evento agregado con éxito', response);

@@ -2,18 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Organization } from './organization';
 import { OrganizacionService } from './organization.service';
 import { CodigoPostalService } from './codigo-postal.service';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CodigoPostal, CodigoPostalResponse } from './codigo-postal';
 
 @Component({
-  selector: 'app-form-org',
-  templateUrl: './form-org.component.html',
-  styleUrls: ['./form-org.component.css'],
+  selector:'app-form-org',
+  templateUrl:'./form-org.component.html',
+  styleUrls:['./form-org.component.css'],
 })
 export class FormOrgComponent implements OnInit {
   orgForm: FormGroup;

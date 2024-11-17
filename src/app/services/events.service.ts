@@ -22,7 +22,7 @@ export class EventsService {
   }
 
   CrearEvento(data: FormData): Observable<EventsPage> {
-    console.log(data)
+    console.log(data);
     return this.http.post<EventsPage>(
       `${this.baseUrl}/api/events/crearEvento`,
       data,
@@ -48,6 +48,15 @@ export class EventsService {
     return this.http.delete(`${this.baseUrl}/api/events/eliminarEvento/${id}`, {
       headers: this.getAuthHeaders(),
     });
+  }
+
+  obtenerEventoPorOrg(id: number): Observable<any> {
+    return this.http.get(
+      `${this.baseUrl}/api/events/encontrarEventosPorOrg/${id}`,
+      {
+        headers: this.getAuthHeaders(),
+      }
+    );
   }
 
   getToken(): string | null {
