@@ -58,6 +58,8 @@ body {
 .hero p {
   font-size: 1em;
   margin-bottom: 60px;
+  color: #FFFF;
+  font-weight:lighter;
 }
 
 .hero-contact {

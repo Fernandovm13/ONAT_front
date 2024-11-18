@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'membership', component: MembershipComponent},
   {path: 'membershipdonation',  component: MembershipDonationComponent},
   {path: 'directdonation', component: DirectDonationComponent},
-  {path: 'historydonation', component: DonationHistoryComponent}
+  {path: 'historydonation', component: DonationHistoryComponent},
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { OrganizacionService } from '../../org/form-org/organization.service';
+import { AlertService } from '../../alerts/alert.service'; 
 import { Organization } from '../../org/form-org/organization';
 
 @Component({
@@ -17,7 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private orgService: OrganizacionService, 
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService 
+
   ) {}
 
   ngOnInit(): void {
@@ -34,12 +37,13 @@ export class LoginComponent implements OnInit {
         response => {
           console.log('Login exitoso', response);
           localStorage.setItem('authToken', response.token);
+          this.alertService.showSuccessAlert(); 
           this.navigateTo('/createevent');  
         },
         error => {
           console.error('Error al iniciar sesión', error);
-          alert('Error al iniciar sesión. Verifique sus credenciales');
-        }
+          this.alertService.showErrorAlert(); 
+       }
       );
     }
   }

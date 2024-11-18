@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Organization } from './organization';
 import { OrganizacionService } from './organization.service';
 import { CodigoPostalService } from './codigo-postal.service';
+import { AlertService } from '../../alerts/alert.service';
 import { CodigoPostal, CodigoPostalResponse } from './codigo-postal';
 
 @Component({
@@ -28,7 +29,8 @@ export class FormOrgComponent implements OnInit {
 
   constructor(
     private organizationService: OrganizacionService,
-    private cpService: CodigoPostalService
+    private cpService: CodigoPostalService,
+    private alertService: AlertService
   ) {}
     
 
@@ -78,19 +80,20 @@ onSubmit(): void {
     formData.append('imagen', this.imagen);
   }
   
-
   this.organizationService.crearOrganizacion(formData).subscribe(
     (response: Organization) => {
       console.log('Organización creada exitosamente:', response);
-      alert('La organización se ha creado correctamente.');
-      this.resetForm();
+      this.alertService.showAlert('welcome').then(() => { 
+        this.resetForm(); 
+      });
     },
     (error) => {
       console.error('Error al crear la organización', error);
-      alert('Hubo un error al crear la organización');
+      alert('Hubo un error al crear la organizaion')    
     }
   );
 }
+
 
 
   onFileChange(event: any): void {

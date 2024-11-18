@@ -50,63 +50,43 @@
                     <div class="form-group">
                         <label>Lista de Productos:</label>
                         <div class="products-table">
-                            <table>
+                            <table class="products-table">
                                 <thead>
                                     <tr>
                                         <th>Producto</th>
                                         <th>Cantidad</th>
                                         <th>Equivalencia</th>
+                                        <th>Donar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Atún</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>1 Kg</option>
-                                                </select>
-                                            </div>
-                                        </td>
+                                        <td>1 kg</td>
                                         <td>$20</td>
+                                        <td><input type="checkbox" name="Producto" value="atun"></td>
                                     </tr>
                                     <tr>
                                         <td>Frijol</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>1 Kg</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>$50</td>
+                                        <td>1 kg</td>
+                                        <td>$30</td>
+                                        <td><input type="checkbox" name="Producto" value="frijol"></td>
                                     </tr>
                                     <tr>
                                         <td>Arroz</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>1 Kg</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>$70</td>
+                                        <td>1 kg</td>
+                                        <td>$20</td>
+                                        <td><input type="checkbox" name="Producto" value="arroz"></td>
                                     </tr>
                                     <tr>
                                         <td>Sopa/Pasta</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>200 Gr</option>
-                                                </select>
-                                            </div>
-                                        </td>
+                                        <td>200g</td>
                                         <td>$15</td>
+                                        <td><input type="checkbox" name="Producto" value="sopa/pasta"></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="form-note">*Puedes seleccionar solo un producto con una cantidad máxima de 3 pzs.</p>
                     </div>
 
                     <button type="submit" class="btn btn-submit">DONAR</button>

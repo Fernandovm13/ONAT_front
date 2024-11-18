@@ -154,6 +154,20 @@ td select {
     margin-top: 20px;
 }
 
+/* checkboxes */
+.products-table td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #5DB0E6; 
+    cursor: pointer;
+    margin: 0 auto; 
+    display: block; 
+}
+
+.products-table td {
+    text-align: center;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .nav {
