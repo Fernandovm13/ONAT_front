@@ -1,0 +1,23 @@
+  /* About Us Section Styles */
+  .about-us {
+    padding: 1px;
+    margin: 1px;
+  }
+  
+  .about-us h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-content {
+    display:flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .about-us-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+  }

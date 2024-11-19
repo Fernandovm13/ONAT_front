@@ -1,0 +1,45 @@
+.hero {
+    background-color: #77B8E8;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px; 
+    overflow: hidden;
+    display: grid;
+  }
+  
+  .hero-content {
+    display:grid;
+    justify-content: center;
+    align-items: flex-end;
+    padding: .001px;
+    display: flex
+  }
+  
+  .hero h1 {
+    font-size: 2.2em;
+    margin-bottom: 90px;
+    color: white;
+  }
+  
+  .hero p {
+    font-size: 1em;
+    margin-bottom: 60px;
+  }
+  
+  .hero-contact {
+    margin-left: 360px;
+    display: flex;
+    gap: 80px;
+  }
+  
+  
+  
+  .hero-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 2px;
+  object-fit: cover;
+  }
+  
+    
