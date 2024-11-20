@@ -4,3 +4,13 @@ body{
     padding: 0;
     font-family: "Montserrat", serif;
 }
+
+body::-webkit-scrollbar{
+    width: 15px;
+    background-color: rgba(235, 238, 243);
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: rgb(253, 185, 122);
+    border-radius: 15px;
+}
