@@ -14,7 +14,7 @@ import { EventsPageModule } from './events-page/events-page.module';
 import { OrganizacionesModule } from './organizaciones/organizaciones.module';
 import { HomeModule } from './home/home.module';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ],
   imports: [
     BrowserModule,
     RouterOutlet,
