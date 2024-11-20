@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       const loginData = this.loginForm.value;
       this.orgService.loginOrganizacion(loginData).subscribe(
         (response) => {
+          localStorage.setItem('authToken', response.token);
           this.router.navigate(['/createevent'])
         },
         (error) => {

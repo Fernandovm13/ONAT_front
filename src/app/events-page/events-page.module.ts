@@ -7,11 +7,13 @@ import { EventsPageComponent } from './events-page.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AddProductComponent } from './add-product/add-product.component';
 @NgModule({
   declarations: [
     EventDonationComponent,
     EventsPageComponent,
     CreateEventComponent,
+    AddProductComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
 })

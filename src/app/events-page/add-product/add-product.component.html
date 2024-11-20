@@ -1,0 +1,44 @@
+<p>add-product works!</p>
+<div class="form-column">
+
+    <div class="catalogProducts" *ngIf="productsData">
+        <h3>catalogo de productos</h3>
+        <div class="catalog-content">
+            <div *ngFor="let producto of productsData" class="catalog-content-data">
+                {{producto.nombreProducto}}
+                <p>Precio: {{ producto.precioBase}}</p>
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="form-group">
+                      <label>Sube una imagen no mayor a 1GB</label>
+                      <div class="upload-area">
+                          <img src="icono6.png" alt="Upload" class="upload-icon">
+                      </div>
+                  </div> -->
+
+    <!-- <div class="form-group">
+                      <label>Selecciona los productos que puedes recibir:</label>
+                      <div class="checkbox-grid">
+                          <label class="checkbox-label">
+                              <input type="checkbox" name="productos" value="atun">
+                              <span>Atún</span>
+                          </label>
+                          <label class="checkbox-label">
+                              <input type="checkbox" name="productos" value="frijol">
+                              <span>Frijol</span>
+                          </label>
+                          <label class="checkbox-label">
+                              <input type="checkbox" name="productos" value="arroz">
+                              <span>Arroz</span>
+                          </label>
+                          <label class="checkbox-label">
+                              <input type="checkbox" name="productos" value="sopas">
+                              <span>Sopas/Pasta</span>
+                          </label>
+                      </div>
+                  </div> -->
+
+    <!-- <button type="submit" class="btn btn-create">CREAR</button> -->
+  </div>
