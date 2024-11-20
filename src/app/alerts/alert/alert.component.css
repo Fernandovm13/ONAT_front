@@ -68,3 +68,30 @@
   background-color: #E7AF3E;
   color: white;
 }
+
+.welcome-alert {
+  background-color: #5DB0E6; 
+  color: white; 
+  border: none; 
+}
+
+.welcome-alert .alert-button{
+  background-color:#28a745 ;
+  color: white;
+}
+
+.alert-button{
+  background-color: #28a745;
+  color: white;
+}
+
+.premium-alert{
+  background-color: #5DB0E6; 
+  color: white; 
+  border: none;
+}
+
+.premium-alert .alert-button{
+  background-color: #E7AF3E;
+  color: white;
+}

@@ -39,7 +39,7 @@ export class AlertService {
           imageHeight: 100,
           confirmButtonText: 'OK',
           customClass: {
-            popup: 'custom-alert blue-bg',
+            popup: 'custom-alert welcome-alert',
             confirmButton: 'alert-button'
           }
         });
@@ -47,7 +47,7 @@ export class AlertService {
       case 'event-published':
         return Swal.fire({
           title: 'Tu Evento está publicado',
-          html: `<div class="emoji">😃</div>`,
+          html: `<div class="emoji"><span>😃</span></div>`,
           confirmButtonText: 'OK',
           customClass: {
             popup: 'custom-alert',
@@ -58,7 +58,7 @@ export class AlertService {
       case 'donation-received':
         return Swal.fire({
           title: '"Manos unidas" ha recibido tu donación',
-          html: `<div class="emoji">😄</div>`,
+          html: `<div class="emoji"><span>😄</span></div>`,
           confirmButtonText: 'OK',
           customClass: {
             popup: 'custom-alert',
@@ -68,9 +68,8 @@ export class AlertService {
 
       case 'thank-you':
         return Swal.fire({
-          title: '¡GRACIAS!',
-          text: 'Tu donación es muy importante para todos',
-          html: `<div class="emoji">😍</div>`,
+          title: '¡GRACIAS POR TU APOYO!',
+          html: `<div class="emoji"><span>😍</span></div>`,
           confirmButtonText: 'OK',
           customClass: {
             popup: 'custom-alert',
@@ -81,7 +80,7 @@ export class AlertService {
       case 'sponsor':
         return Swal.fire({
           title: 'Te has convertido en Padrino/Madrina',
-          html: `<div class="emoji">🤩</div>`,
+          html: `<div class="emoji"><span>🤩</span></div>`,
           confirmButtonText: 'OK',
           customClass: {
             popup: 'custom-alert',
@@ -98,8 +97,8 @@ export class AlertService {
           imageHeight: 100,
           confirmButtonText: 'Adquirir',
           customClass: {
-            popup: 'custom-alert blue-bg',
-            confirmButton: 'alert-button warning'
+            popup: 'custom-alert premium-alert',
+            confirmButton: 'alert-button'
           }
         });
 
