@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EventsService } from '../../../services/events.service';
+import { EventsService } from '../../../events-page/services/events.service';
 
 @Component({
   selector: 'organizational-history',

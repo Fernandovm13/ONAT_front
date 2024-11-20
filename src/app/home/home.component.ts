@@ -19,7 +19,7 @@ export class HomeComponent {
 
 
   subtitleHero: string =`
-    con el apoyo de todos lograremos
+    Con el apoyo de todos lograremos
     que todos y todas alimentemos nuestros
     sueños y estomagos para prosperar en la vida
     y seguir luchando un día más 
