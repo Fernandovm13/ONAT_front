@@ -1,0 +1,20 @@
+.catalog-content {
+    max-height: 400px;
+    overflow-y: auto;  
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    background-color: rgb(255, 255, 255);
+  }
+
+
+  .catalog-content::-webkit-scrollbar{
+    width: 15px;
+    background-color: rgba(235, 238, 243);
+  }
+
+  .catalog-content::-webkit-scrollbar-thumb{
+    background-color: rgb(253, 185, 122);
+    border-radius: 15px;
+  }
+
+  

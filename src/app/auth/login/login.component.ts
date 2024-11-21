@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlertService } from '../../alert/alert.service';
 @Component({
   selector: 'app-login',

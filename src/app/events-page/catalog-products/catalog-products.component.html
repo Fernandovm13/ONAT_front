@@ -1,0 +1,12 @@
+<div class="form-column">
+
+    <div class="catalogProducts" *ngIf="productsData">
+        <h3>catalogo de productos</h3>
+        <div class="catalog-content">
+            <div *ngFor="let producto of productsData" class="catalog-content-data">
+                {{producto.nombreProducto}}
+                <p>Precio: {{ producto.precioBase}}</p>
+
+            </div>
+        </div>
+    </div>
