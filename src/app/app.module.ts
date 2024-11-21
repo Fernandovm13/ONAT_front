@@ -13,8 +13,9 @@ import { SharedModule } from './components/SharedModule.module';
 import { EventsPageModule } from './events-page/events-page.module';
 import { OrganizacionesModule } from './organizaciones/organizaciones.module';
 import { HomeModule } from './home/home.module';
+import { AlertsModule } from './alert/alert.module';
 @NgModule({
-  declarations: [AppComponent, ],
+  declarations: [AppComponent ],
   imports: [
     BrowserModule,
     RouterOutlet,
@@ -28,6 +29,7 @@ import { HomeModule } from './home/home.module';
     EventsPageModule,
     HomeModule,
     SharedModule,
+    AlertsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

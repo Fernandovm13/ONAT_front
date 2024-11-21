@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
 import { Route, Router } from '@angular/router';
+import { AlertService } from '../../alert/alert.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(
+    private alertService: AlertService,
     private orgService: OrganizacionService,
     private fb: FormBuilder,
     private router: Router
@@ -30,11 +32,12 @@ export class LoginComponent implements OnInit {
       this.orgService.loginOrganizacion(loginData).subscribe(
         (response) => {
           localStorage.setItem('authToken', response.token);
+          this.alertService.showSuccessAlert()
           this.router.navigate(['/createevent'])
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
-          alert('Error al iniciar sesión. Verifique sus credenciales');
+        this.alertService.showAlert('premium')
         }
       );
     }

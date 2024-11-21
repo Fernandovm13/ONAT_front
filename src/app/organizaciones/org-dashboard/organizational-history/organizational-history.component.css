@@ -1,4 +1,8 @@
-.event-history-container {
+.event-history-container{
+  height: 100vh;
+}
+
+.event-history-content {
     padding: 20px;
     background-color: #d3e9fa;
     border-radius: 10px;
