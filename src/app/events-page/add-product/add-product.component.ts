@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductsServiceService } from '../services/products-service.service';
+import { PostsService } from '../services/posts.service';
+import { productsService } from '../services/products.service';
 import { Products } from '../products';
-import { OnInit } from '@angular/core';
+import { OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -11,31 +12,23 @@ import { OnInit } from '@angular/core';
 export class AddProductComponent implements OnInit {
   productsForm: FormGroup;
   productsData: Products[] = [];
+  selectProducts: string[] = [];
   orgId: any;
+  @Output() productosSeleccionados = new EventEmitter<string[]>();
 
   constructor(
     private fb: FormBuilder,
-    private productsService: ProductsServiceService
+    private PostsService: PostsService,
+    private productsService: productsService
   ) {
     this.productsForm = this.fb.group({
-      nombreProducto: ['', Validators.required],
-      precioBase: ['', Validators.required],
+      orgId: [''],
     });
   }
 
   ngOnInit(): void {
-    this.getIdOrg();
     this.mostrarProductos();
   }
-
-  getIdOrg() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decodedToken = this.decodeToken(token);
-      this.orgId = decodedToken.userId;
-    }
-  }
-
   mostrarProductos(): void {
     this.productsService.verCatalogo().subscribe(
       (data: Products[]) => {
@@ -45,7 +38,37 @@ export class AddProductComponent implements OnInit {
         console.error('Error al obtener los productos', error);
       }
     );
+  }  
+  
+  
+  onCheckboxChange(event: any): void {
+    const productosIds = event.target.value;
+    if (event.target.checked) {
+      this.selectProducts.push(productosIds); 
+    } else {
+      const index = this.selectProducts.indexOf(productosIds);
+      if (index > -1) {
+        this.selectProducts.splice(index, 1); 
+      }
+    }
+    console.log('Productos seleccionados:', this.selectProducts);
+    this.productosSeleccionados.emit(this.selectProducts);
   }
+
+
+  onProductsSelect() {
+    this.productsService.verCatalogo().subscribe(
+      (data: Products[]) =>{
+        this.productsData = data
+      },
+      (error) => {
+        console.log('error al obtener los producto seleccionado', error)
+      }
+    )
+
+  }
+
+
   decodeToken(token: string): any {
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload;

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
-        this.alertService.showAlert('premium')
+        this.alertService.showErrorAlert()
         }
       );
     }

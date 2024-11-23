@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductsServiceService } from '../services/products-service.service';
+import { productsService } from '../services/products.service';
 import { Products } from '../products';
 import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-catalog-products',
   templateUrl: './catalog-products.component.html',
-  styleUrl: './catalog-products.component.css'
+  styleUrl: './catalog-products.component.css',
 })
 export class CatalogProductsComponent implements OnInit {
   productsForm: FormGroup;
@@ -16,7 +16,7 @@ export class CatalogProductsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private productsService: ProductsServiceService
+    private productsService: productsService
   ) {
     this.productsForm = this.fb.group({
       nombreProducto: ['', Validators.required],

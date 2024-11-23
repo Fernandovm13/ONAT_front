@@ -31,8 +31,8 @@ export class OrganizationalHistoryComponent implements OnInit{
     const token = localStorage.getItem('authToken');
     if (token) {
       const decodedToken = this.decodeToken(token);
-      console.log(decodedToken)
       const orgId = decodedToken.sub;
+      console.log(orgId)
       this.eventsService.obtenerEventoPorOrg(orgId).subscribe(
         (data) => {
           this.eventData = data;

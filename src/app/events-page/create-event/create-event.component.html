@@ -6,8 +6,7 @@
 
     <form
       class="event-form"
-      [formGroup]="eventsForm"
-      (ngSubmit)="agregarEvento()"
+      [formGroup]="eventsForm" (ngSubmit)="agregarEvento()"
     >
       <div class="form-grid">
         <div class="form-column">
@@ -81,15 +80,19 @@
         </div>
 
         <div class="form-column">
-        
-         <app-catalog-products></app-catalog-products>
-
-          <!-- <button type="submit" class="btn btn-create">CREAR</button> -->
+          <app-add-product (productosSeleccionados)="onProductosSeleccionados($event)"></app-add-product>
+          <!-- <div class="showPost">
+            <button (click)="togglePostComponent()">Mostrar Post</button>
+            <app-add-product *ngIf="showPostComponent"></app-add-product>
+          </div> -->
+          <button type="submit">Crear Evento</button>
         </div>
       </div>
     </form>
 
-    <button class="btn btn-create" routerLink="/eventshistory">control de eventos</button>
+    <button class="btn btn-create" routerLink="/eventshistory">
+      control de eventos
+    </button>
 
     <div class="history-section">
       <div class="history-content">
