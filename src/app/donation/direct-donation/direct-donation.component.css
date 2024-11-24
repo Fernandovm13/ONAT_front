@@ -1,0 +1,178 @@
+
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 40px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #003366; 
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Images Section Styles */
+.images-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.impact-image {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Donation Form Styles */
+.donation-form {
+    background: #e3f2fd; 
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #003366; 
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff; 
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #7d7d7d; 
+}
+
+/* Products Table Styles */
+.products-table {
+    background-color: #ffffff; 
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bb8; 
+    color: #ffffff; 
+}
+
+td select {
+    width: 100px;
+}
+
+.form-note {
+    font-size: 0.8em;
+    color: #7d7d7d; 
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #E7AF3E; 
+    color: black; 
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .products-table {
+        overflow-x: auto;
+    }
+    
+    table {
+        min-width: 500px;
+    }
+}
+
+/* Input States */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #007bb8; 
+    box-shadow: 0 0 0 2px rgba(119, 184, 232, 0.2);
+}
+
+/* Button Hover States */
+.btn-submit:hover {
+    background-color: #e4a82e; 
+}
