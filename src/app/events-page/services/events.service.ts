@@ -30,8 +30,8 @@ export class EventsService {
     );
   }
 
-  ObtenerEventos(): Observable<EventsPage> {
-    return this.http.get<EventsPage>(
+  ObtenerEventos(): Observable<EventsPage[]> {
+    return this.http.get<EventsPage[]>(
       `${this.baseUrl}/api/events/obtenerEventos`
     );
   }

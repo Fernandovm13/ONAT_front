@@ -5,4 +5,5 @@ export interface EventsPage {
   horaInicio: string;
   horaFinal: string;
   lugar: string;
+  
 }

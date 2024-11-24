@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { EventDonationComponent } from './event-donation/event-donation.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { EventsPageComponent } from './events-page.component';
+import { EventsComponent } from './events/events.component';
+
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -16,6 +18,7 @@ import { CatalogProductsComponent } from './catalog-products/catalog-products.co
     CreateEventComponent,
     AddProductComponent,
     CatalogProductsComponent,
+    EventsComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
 })

@@ -17,7 +17,7 @@ export class OrganizacionService {
   }
 
   loginOrganizacion(login: Organization): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/login`, login);
+    return this.http.post<any>(`${this.baseUrl}/organizaciones/login`, login);
   }
 
   getToken(): string | null {
@@ -30,7 +30,13 @@ export class OrganizacionService {
 
   obtenerOrganizaciones(): Observable<Organization> {
     return this.http.get<Organization>(
-      `${this.baseUrl}/obtener_organizaciones`
+      `${this.baseUrl}/organizaciones/obtener_organizaciones`
+    );
+  }
+
+  obtenerOrganizacionesPorId(id: string): Observable<Organization[]> {
+    return this.http.get<Organization[]>(
+      `${this.baseUrl}/organizaciones/obtenerOrgPorId/${id}`
     );
   }
 

@@ -11,7 +11,7 @@ import { MembershipComponent } from './donation/membership/membership.component'
 import { DirectDonationComponent } from './donation/direct-donation/direct-donation.component';
 import { OrganizationalHistoryComponent } from './organizaciones/org-dashboard/organizational-history/organizational-history.component';
 import { OrgDashboardComponent } from './organizaciones/org-dashboard/org-dashboard.component';
-
+import { EventDonationComponent } from './events-page/event-donation/event-donation.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cardsorg', component: CardsOrgComponent },
@@ -24,6 +24,8 @@ const routes: Routes = [
   { path: 'directdonation', component: DirectDonationComponent },
   { path: 'orgdashboard', component: OrgDashboardComponent },
   { path: 'eventshistory', component: OrganizationalHistoryComponent },
+  { path: 'eventdonation/:id', component: EventDonationComponent },
+
 ];
 
 @NgModule({
