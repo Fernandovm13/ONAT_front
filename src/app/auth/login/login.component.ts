@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
-import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
+import { OrganizacionService } from '../../services-interfaces/organization.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

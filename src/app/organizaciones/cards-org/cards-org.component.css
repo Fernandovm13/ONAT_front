@@ -3,6 +3,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Button Styles */
@@ -47,58 +48,6 @@
 }
 
 /* Organizations Grid */
-.organizations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-}
-
-.org-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.org-card:hover {
-    transform: translateY(-5px);
-}
-
-.org-logo {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto 20px;
-    display: block;
-}
-
-.org-name {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #003366; 
-}
-
-.org-description {
-    color: #6c757d; 
-    margin-bottom: 20px;
-    font-size: 0.9em;
-}
-
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.icon {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
 
 /* Join Section */
 .join-section {

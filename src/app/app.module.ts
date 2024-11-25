@@ -12,6 +12,7 @@ import { DonationModule } from './donation/donation.module';
 import { SharedModule } from './components/SharedModule.module';
 import { EventsPageModule } from './events-page/events-page.module';
 import { OrganizacionesModule } from './organizaciones/organizaciones.module';
+import { InCardComponent } from './organizaciones/in-card/in-card.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [

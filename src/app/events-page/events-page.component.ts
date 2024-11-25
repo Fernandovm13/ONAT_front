@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OrganizacionService } from '../organizaciones/form-org/organization.service';
+import { OrganizacionService } from '../services-interfaces/organization.service';
 
 
 @Component({
