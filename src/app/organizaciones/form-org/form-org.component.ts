@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import { Organization } from './organization';
 import { OrganizacionService } from './organization.service';
 import { CodigoPostalService } from './codigo-postal.service';
@@ -14,7 +14,8 @@ export class FormOrgComponent implements OnInit {
   orgForm: FormGroup;
   cp: number = 0;
   colonias: string[] = [];
-  
+  @ViewChild('fileInput', { static: false }) fileInput!: ElementRef;
+
   colonia: string = '';
   
 
@@ -34,12 +35,23 @@ export class FormOrgComponent implements OnInit {
       rfc: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
+      imagen: [null, Validators.required]
     });
   }
 
   ngOnInit(): void {
     console.log(this.cp);
     // this.getPostalData(this.cp);
+  }
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.orgForm.patchValue({ imagen: file }); // Actualiza el control del formulario
+    }
+  }
+  triggerFileInput(): void {
+    this.fileInput.nativeElement.click();
   }
 
   getPostalData(cpostal: any): void {

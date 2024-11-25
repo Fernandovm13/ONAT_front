@@ -29,11 +29,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Sube una imagen no mayor a 30mb</label>
-                            <div class="upload-area">
-                                <img src="icono6.png" alt="Upload" class="upload-icon">
+                            <label>Sube una imagen no mayor a 30MB</label>
+                            <div class="upload-area" (click)="triggerFileInput()">
+                              <img src="icono6.png" alt="Upload" class="upload-icon">
+                              <input type="file" id="imagen" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
                             </div>
-                        </div>
+                          </div>
                     </div>
 
                     <div class="form-column">
