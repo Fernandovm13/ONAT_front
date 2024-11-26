@@ -13,11 +13,11 @@ export class OrganizacionService {
   constructor(private http: HttpClient) {}
 
   crearOrganizacion(data: FormData): Observable<Organization> {
-    return this.http.post<Organization>(`${this.baseUrl}/organizaciones/crear_org`, data);
+    return this.http.post<Organization>(`${this.baseUrl}/organizaciones`, data);
   }
 
   loginOrganizacion(login: Organization): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/organizaciones/login`, login);
+    return this.http.post<any>(`${this.baseUrl}/login`, login);
   }
 
   getToken(): string | null {
@@ -30,13 +30,7 @@ export class OrganizacionService {
 
   obtenerOrganizaciones(): Observable<Organization> {
     return this.http.get<Organization>(
-      `${this.baseUrl}/organizaciones/obtener_organizaciones`
-    );
-  }
-
-  obtenerOrganizacionesPorId(id: string): Observable<Organization> {
-    return this.http.get<Organization>(
-      `${this.baseUrl}/organizaciones/obtenerOrgPorId/${id}`
+      `${this.baseUrl}/obtener_organizaciones`
     );
   }
 

@@ -1,32 +1,46 @@
+<main class="main-content">
+    <div class="container">
+        <div class="registration-header">
+            <h1>¿Eres una organización?</h1>
+            <h2>¡ÚNETE AHORA!</h2>
+        </div>
 
-    <main class="main-content">
-        <div class="container">
-            <div class="registration-header">
-                <h1>¿Eres una organización?</h1>
-                <h2>¡ÚNETE AHORA!</h2>
-            </div>
+        <form class="registration-form" [formGroup]="orgForm" (ngSubmit)="agregarOrg()">
+            <div class="form-grid">
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" formControlName="nombre" id="nombre" required>
+                        <div *ngIf="orgForm.get('nombre')?.invalid && orgForm.get('nombre')?.touched">
+                            <small *ngIf="orgForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</small>
+                        </div>
+                    </div>
 
-            <form class="registration-form" [formGroup]="orgForm" (ngSubmit)="agregarOrg()">
-                <div class="form-grid">
-                    <div class="form-column">
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" formControlName="nombre" id="nombre" required>
+                    <div class="form-group">
+                        <label for="correo">Correo:</label>
+                        <input type="email" formControlName="correo" id="correo" required>
+                        <div *ngIf="orgForm.get('correo')?.invalid && orgForm.get('correo')?.touched">
+                            <small *ngIf="orgForm.get('correo')?.hasError('required')">El correo es obligatorio.</small>
+                            <small *ngIf="orgForm.get('correo')?.hasError('email')">El correo no es válido.</small>
                         </div>
-                        <div class="form-group">
-                            <label for="cp">Codigo Postal:</label>
-                              <input type="text" formControlName="cp" id="cp" (change)="validarCP($event)" required>
-                        </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="estado">Estado:</label>
-                            <input type="text" formControlName="estado" name="estado" value="Chiapas, México." readonly required>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" formControlName="telefono" name="telefono" required>
+                        <div *ngIf="orgForm.get('telefono')?.invalid && orgForm.get('telefono')?.touched">
+                            <small *ngIf="orgForm.get('telefono')?.hasError('required')">El teléfono es obligatorio.</small>
+                            <small *ngIf="orgForm.get('telefono')?.hasError('pattern')">El teléfono debe tener 10 dígitos.</small>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="direccion">Dirección:</label>
-                            <input type="text"formControlName="direccion" name="direccion" required>
+                    <div class="form-group">
+                        <label for="rfc">RFC:</label>
+                        <input type="text" formControlName="rfc" name="rfc" required>
+                        <div *ngIf="orgForm.get('rfc')?.invalid && orgForm.get('rfc')?.touched">
+                            <small *ngIf="orgForm.get('rfc')?.hasError('required')">El RFC es obligatorio.</small>
                         </div>
+                    </div>
 
                         <div class="form-group">
                             <label>Sube una imagen no mayor a 30MB</label>
@@ -37,43 +51,56 @@
                           </div>
                     </div>
 
-                    <div class="form-column">
-                        <div class="form-group">
-                            <label for="correo">Correo:</label>
-                            <input type="email" formControlName="correo" id="correo" required>
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="cp">Código Postal:</label>
+                        <input type="text" formControlName="cp" id="cp" (change)="validarCP($event)" required>
+                        <div *ngIf="orgForm.get('cp')?.invalid && orgForm.get('cp')?.touched">
+                            <small *ngIf="orgForm.get('cp')?.hasError('required')">El código postal es obligatorio.</small>
+                            <small *ngIf="orgForm.get('cp')?.hasError('pattern')">El código postal debe tener 5 dígitos numéricos.</small>
                         </div>
-
-                        <div class="form-group">
-                            <label for="telefono">Teléfono:</label>
-                            <input type="tel" formControlName="telefono" name="telefono" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="rfc">RFC:</label>
-                            <input type="text" formControlName="rfc" name="rfc" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="municipio">municipio:</label>
-                            <input type="text" formControlName="municipio" name="municipio" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="colonia">colonia:</label>
-                            <input type="text" formControlName="colonia" name="colonia" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contrasena">Crea una contraseña:</label>
-                            <input type="contrasena" formControlName="contrasena" name="contrasena" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirm-contrasena">Repite la contraseña:</label>
-                            <input type="contrasena" name="confirm-contrasena" required>
-                        </div>
-
-                        <button type="submit"  class="btn btn-submit">UNIRME</button>
                     </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <input type="text" formControlName="estado" name="estado" value="Chiapas, México." readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" formControlName="direccion" name="direccion" required>
+                        <div *ngIf="orgForm.get('direccion')?.invalid && orgForm.get('direccion')?.touched">
+                            <small *ngIf="orgForm.get('direccion')?.hasError('required')">La dirección es obligatoria.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="municipio">Municipio:</label>
+                        <input type="text" formControlName="municipio" name="municipio" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="colonia">Colonias:</label>
+                        <select id="colonias" name="colonia" [(ngModel)]="colonia" required formControlName="colonia">
+                            <option *ngFor="let col of colonias" [value]="col">{{ col }}</option>
+                        </select>
+                        <div *ngIf="orgForm.get('colonia')?.invalid && orgForm.get('colonia')?.touched">
+                            <small *ngIf="orgForm.get('colonia')?.hasError('required')">Ingrese el código postal para obtener las colonias.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contrasena">Crea una contraseña:</label>
+                        <input type="password" formControlName="contrasena" name="contrasena" required>
+                        <div *ngIf="orgForm.get('contrasena')?.invalid && orgForm.get('contrasena')?.touched">
+                            <small *ngIf="orgForm.get('contrasena')?.hasError('required')">La contraseña es obligatoria.</small>
+                            <small *ngIf="orgForm.get('contrasena')?.hasError('minlength')">La contraseña debe tener al menos 6 caracteres.</small>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit" [disabled]="orgForm.invalid">UNIRME</button>
                 </div>
-            </form>
-        </div>
-    </main>
+            </div>
+        </form>
+    </div>
+</main>

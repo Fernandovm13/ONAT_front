@@ -10,6 +10,7 @@
   align-items: center;
 }
 
+
 .navbar-nav {
   list-style: none;
   display: flex; 
@@ -24,12 +25,13 @@
 .nav-link {
   color: #000000;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 25px;
   transition: color 0.3s ease, border-bottom 0.3s ease;
+  font-family: 'Trebuchet MS' ;
 }
 
 .nav-link:hover {
-  color: #f39c12;
+  color: #da7400;
 }
 
 .nav-link.active {

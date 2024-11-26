@@ -1,9 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
-import { Organization } from './organization';
-import { OrganizacionService } from './organization.service';
-import { CodigoPostalService } from './codigo-postal.service';
+import { Organization } from '../../services-interfaces/organization/organization';
+import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
+import { CodigoPostalService } from '../../services-interfaces/cp/codigo-postal.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { CodigoPostal, CodigoPostalResponse } from './codigo-postal';
+import { CodigoPostal, CodigoPostalResponse } from '../../services-interfaces/cp/codigo-postal';
+import { DriveService } from '../../services-interfaces/drive/sdrive.service';
 
 @Component({
   selector:'app-form-org',
@@ -14,15 +15,15 @@ export class FormOrgComponent implements OnInit {
   orgForm: FormGroup;
   cp: number = 0;
   colonias: string[] = [];
-  @ViewChild('fileInput', { static: false }) fileInput!: ElementRef;
-
+  
   colonia: string = '';
   
 
   constructor(
     private fb: FormBuilder,
     private organizationService: OrganizacionService,
-    private cpService: CodigoPostalService
+    private cpService: CodigoPostalService,
+    private drive: DriveService
   ) {
     this.orgForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -35,13 +36,21 @@ export class FormOrgComponent implements OnInit {
       rfc: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
-      imagen: [null, Validators.required]
     });
   }
 
   ngOnInit(): void {
     console.log(this.cp);
-    // this.getPostalData(this.cp);
+  }
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.orgForm.patchValue({ imagen: file }); // Actualiza el control del formulario
+    }
+  }
+  triggerFileInput(): void {
+    this.fileInput.nativeElement.click();
   }
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -82,44 +91,54 @@ export class FormOrgComponent implements OnInit {
   }
 
   agregarOrg(): void {
-    console.log(this.orgForm.value)
     if (this.orgForm.valid) {
-      console.log("valid");
       const formData = new FormData();
       Object.keys(this.orgForm.value).forEach((key) => {
         formData.append(key, this.orgForm.value[key]);
       });
-      
-      // if (this.imagen) {
-      //   formData.append('imagen', this.imagen);
-
-      // }
-      // Imprimir los datos de formData
-      this.organizationService.crearOrganizacion(formData).subscribe(
-          (response: Organization) => {
-            console.log('Organización creada exitosamente:', response);
-            alert('La organización se ha creado correctamente.');
-          },
-          (error) => {
-            console.log(formData)
-            console.error('Error al crear la organización', error);
-            alert('Hubo un error al crear la organización');
-          }
-        );
-    
-    }else{
-      console.log("not valid")
-    }
-
-
-    
-  }
-
-  onFileChange(event: any): void {
-    if (event.target.files.length > 0) {
-      // this.imagen = event.target.files[0]
+  
+      this.organizationService.crearOrganizacion(formData).subscribe({
+        next: (response: Organization) => {
+          console.log('Organización creada exitosamente:', response);
+          alert('La organización se ha creado correctamente.');
+        },
+        error: (error) => {
+          console.error('Error al crear la organización', error);
+          alert('Hubo un error al crear la organización');
+        },
+      });
+    } else {
+      alert('Formulario inválido, credenciales faltantes o incorrectas')
+      console.log('Formulario no válido');
     }
   }
+  
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      this.uploadMessage = ''; 
+      this.uploadFile();
+    }
+  }
+
+  uploadFile(): void {
+    if (this.selectedFile) {
+      this.drive.uploadFile(this.selectedFile).subscribe({
+        next: (response) => {
+          const googleDriveUrl = response.google_drive_url; 
+          console.log(googleDriveUrl)
+          this.orgForm.patchValue({ imagen: googleDriveUrl });  
+          this.uploadMessage = 'Archivo subido y enlace asignado correctamente.';
+        },
+        error: (error) => {
+          this.uploadMessage = `Error al subir el archivo: ${error}`;
+        },
+      });
+    }
+  }
+  
   validarCP(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const cpValue = inputElement.value;

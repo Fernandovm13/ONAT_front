@@ -14,6 +14,7 @@ import { EventsPageModule } from './events-page/events-page.module';
 import { OrganizacionesModule } from './organizaciones/organizaciones.module';
 import { HomeModule } from './home/home.module';
 import { AlertsModule } from './alert/alert.module';
+import { InCardComponent } from './organizaciones/in-card/in-card.component';
 @NgModule({
   declarations: [AppComponent ],
   imports: [

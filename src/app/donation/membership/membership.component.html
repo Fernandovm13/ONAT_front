@@ -1,59 +1,34 @@
 <main class="main-content">
     <div class="container">
-        <link rel="stylesheet" href="membership.component.css">
-        <h1>Conviértete en Madrina/Padrino</h1>
-
-        <div class="membership-grid">
-            <div class="membership-card silver">
-                <h2>Membresía</h2>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">250</span>
-                    <span class="cents">.00</span>
-                </div>
-                <div class="tier">PLATA</div>
-                <ul class="benefits">
-                    <li>6 Atunes</li>
-                    <li>2 Kg. Frijol</li>
-                    <li>2 Kg. Arroz</li>
-                    <li>1 kg. Sopa/Pasta</li>
-                </ul>
-                <button class="btn btn-acquire" href="/membershipdonation" >ADQUIRIR</button>
-            </div>
-
-            <div class="membership-card gold">
-                <h2>Membresía</h2>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">300</span>
-                    <span class="cents">.00</span>
-                </div>
-                <div class="tier">ORO</div>
-                <ul class="benefits">
-                    <li>6 Atunes</li>
-                    <li>2 Kg. Frijol</li>
-                    <li>2 Kg. Arroz</li>
-                    <li>1 kg. Sopa/Pasta</li>
-                </ul>
-                <button class="btn btn-acquire" href="/membershipdonation" >ADQUIRIR</button>
-            </div>
-
-            <div class="membership-card diamond">
-                <h2>Membresía</h2>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">500</span>
-                    <span class="cents">.00</span>
-                </div>
-                <div class="tier">DIAMANTE</div>
-                <ul class="benefits">
-                    <li>6 Atunes</li>
-                    <li>2 Kg. Frijol</li>
-                    <li>2 Kg. Arroz</li>
-                    <li>1 kg. Sopa/Pasta</li>
-                </ul>
-                <button class="btn btn-acquire" href="/membershipdonation" >ADQUIRIR</button>
-            </div>
+      <h1>Conviértete en Madrina/Padrino</h1>
+  
+      <div class="membership-grid">
+        <div
+          class="membership-card"
+          *ngFor="let membership of memberships"
+          [ngClass]="{
+            'Plata': membership.plan === 'Plata',
+            'Oro': membership.plan === 'Oro',
+            'Diamante': membership.plan === 'Diamante'
+          }"
+        >
+          <h2>Membresía</h2>
+          <div class="price">
+            <span class="currency">$</span>
+            <span class="amount">{{ membership.costo | number: '1.0-0' }}</span>
+            <span class="cents">.00</span>
+          </div>
+          <div class="tier">{{ membership.plan }}</div>
+          <ul class="benefits">
+            <li *ngFor="let benefit of obtenerBeneficios(membership)">
+              {{ benefit }}
+            </li>
+          </ul>
+          <button class="btn btn-acquire" routerLink="/membershipdonation">
+            ADQUIRIR
+          </button>
         </div>
+      </div>
     </div>
-</main>
+  </main>
+  

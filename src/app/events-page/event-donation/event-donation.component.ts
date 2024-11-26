@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Organization } from '../../organizaciones/form-org/organization';
+import { Organization } from '../../services-interfaces/organization/organization';
 import { ActivatedRoute } from '@angular/router';
-import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
+import { OrganizacionService } from '../../services-interfaces/organization/organization.service'; 
 import { EventsService } from '../services/events.service';
 import { EventsPage } from '../events-page';
 import { PostsService } from '../services/posts.service';

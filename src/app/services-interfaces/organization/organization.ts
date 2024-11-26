@@ -1,3 +1,5 @@
+import { SafeUrl } from "@angular/platform-browser";
+
 export interface Organization {
   id: number;
   nombre: string;
@@ -10,5 +12,5 @@ export interface Organization {
   rfc: string;
   telefono: string;
   contrasena: string;
-  imagen: File | null ;
+  imagen: SafeUrl | string;
 }
