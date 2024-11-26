@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { OrganizacionService } from '../../organizaciones/form-org/organization.service';
+import { Router } from '@angular/router';
+import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../../alert/alert.service';
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private alertService: AlertService,
     private orgService: OrganizacionService,
-    private fb: FormBuilder,
+    private fb: FormBuilder, private router: Router,
     private router: Router
   ) {}
 
@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('authToken', response.token);
           this.alertService.showSuccessAlert()
           this.router.navigate(['/createevent'])
+          this.navigateTo('/createevent')
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
@@ -41,5 +42,10 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+
+  navigateTo(route: string) {
+    this.router.navigateByUrl(route);
+    return false; 
   }
 }

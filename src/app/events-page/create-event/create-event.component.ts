@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EventsService } from '../services/events.service';
-import { PostsService } from '../services/posts.service';
+import { EventsService } from '../../services/events.service';
 import { EventsPage } from '../events-page';
 @Component({
   selector: 'app-create-event',

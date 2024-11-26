@@ -1,116 +1,114 @@
-    <main class="main-content">
-        <div class="container"> 
-         <link rel="stylesheet" href="direct-donation.component.css">
-            <h1>¡TU APOYO ES MUY IMPORTANTE!</h1>
+<main class="main-content">
+    <div class="container">
+        <!-- <h1>¡TU APOYO ES MUY IMPORTANTE!</h1> -->
 
+        <!-- Formulario Unificado -->
+        <form [formGroup]="donacionForm" (ngSubmit)="onSubmit()" class="donation-form">
+            <!-- Contenedor de Datos Personales y Datos de la Tarjeta -->
             <div class="content-grid">
-                <div class="images-section">
-                    <img src="imagen6.png" alt="Niños compartiendo comida" class="impact-image">
-                    <img src="imagen7.png" alt="Voluntarios con donaciones" class="impact-image">
-                </div>
-
-                <form class="donation-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" id="apellido" name="apellido" required>
-                        </div>
+                <!-- Datos Personales -->
+                <div class="content-grid-left">
+                    <h3>DATOS PERSONALES</h3>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" formControlName="nombre" required>
                     </div>
-
+                    <div class="form-group">
+                        <label for="apellido">Apellido paterno:</label>
+                        <input type="text" id="apellido" formControlName="apellido_p" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido materno:</label>
+                        <input type="text" id="apellido" formControlName="apellido_m" required>
+                    </div>
                     <div class="form-group">
                         <label for="correo">Correo:</label>
-                        <input type="email" id="correo" name="correo" required>
+                        <input type="email" id="correo" formControlName="correo" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="tipo-donacion">Tipo de donación:</label>
+                        <label for="evento">Organización:</label>
                         <div class="select-wrapper">
-                            <select id="tipo-donacion" name="tipo-donacion" required>
-                                <option value="monetaria">Solo una vez</option>
-                                <option value="monetaria">Membresia</option>                            
+                            <select id="evento" formControlName="id_org" required>
+                                <option value="">Seleccionar Organización</option>
+                                <option *ngFor="let org of organizaciones" [value]="org.id">
+                                    {{ org.nombre }}
+                                </option>
                             </select>
                         </div>
                     </div>
+                </div>
 
+                <!-- Datos de la Tarjeta -->
+                <div class="content-grid-right">
+                    <h3>DATOS DE LA TARJETA</h3>
+                    <div formGroupName="tarjeta">
                     <div class="form-group">
-                        <label for="evento">Evento:</label>
-                        <div class="select-wrapper">
-                            <select id="evento" name="evento" required>
-                                <option value="">Seleccionar evento</option>
-                                <option value="evento1">Evento 1</option>
-                                <option value="evento2">Evento 2</option>
-                            </select>
-                        </div>
+                        <label for="numero">Número de tarjeta:</label>
+                        <input type="text" id="numero" formControlName="numero_tarjeta" required>
                     </div>
-
                     <div class="form-group">
-                        <label>Lista de Productos:</label>
-                        <div class="products-table">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Producto</th>
-                                        <th>Cantidad</th>
-                                        <th>Equivalencia</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Atún</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>1 Kg</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>$20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Frijol</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>1 Kg</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>$50</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Arroz</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>1 Kg</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>$70</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sopa/Pasta</td>
-                                        <td>
-                                            <div class="select-wrapper">
-                                                <select>
-                                                    <option>200 Gr</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>$15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="form-note">*Puedes seleccionar solo un producto con una cantidad máxima de 3 pzs.</p>
+                        <label for="cvv">CVV:</label>
+                        <input type="number" id="cvv" formControlName="cvv" required>
                     </div>
+                    <div class="form-group">
+                        <label for="expiración">Fecha de expiración:</label>
+                        <input id="expiración" formControlName="fecha_expiracion" type="date"
+                        required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cantidad">Cantidad de la donación:</label>
+                    <input id="cantidad" 
+                    type="number"
+                    formControlName="cantidad" placeholder="MXN"
+                    required>
+                </div>
+            </div>
+            </div>
 
-                    <button type="submit" class="btn btn-submit">DONAR</button>
-                </form>
+            <!-- Botón de Enviar -->
+            <button type="submit" class="btn btn-submit">DONAR</button>
+        </form>
+
+        <!-- Lista de Productos -->
+        <div class="content-grid3">
+            <div class="form-group">
+                <label>Lista de Productos:</label>
+                <div class="products-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Equivalencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Atún</td>
+                                <td><p>1 kg</p></td>
+                                <td>$20</td>
+                            </tr>
+                            <tr>
+                                <td>Frijol</td>
+                                <td><p>1 kg</p></td>
+                                <td>$50</td>
+                            </tr>
+                            <tr>
+                                <td>Arroz</td>
+                                <td><p>1 kg</p></td>
+                                <td>$70</td>
+                            </tr>
+                            <tr>
+                                <td>Sopa/Pasta</td>
+                                <td><p>200 gr</p></td>
+                                <td>$15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="form-note">*Puedes seleccionar solo un producto con una cantidad máxima de 3 pzs.</p>
             </div>
         </div>
-    </main>
+    </div>
+</main>
