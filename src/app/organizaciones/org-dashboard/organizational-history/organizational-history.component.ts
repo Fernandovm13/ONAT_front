@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EventsService } from '../../../services/events.service';
+import { EventsService } from '../../../events-page/services/events.service';
 
 @Component({
   selector: 'organizational-history',
@@ -31,8 +31,8 @@ export class OrganizationalHistoryComponent implements OnInit{
     const token = localStorage.getItem('authToken');
     if (token) {
       const decodedToken = this.decodeToken(token);
-      console.log(decodedToken)
       const orgId = decodedToken.sub;
+      console.log(orgId)
       this.eventsService.obtenerEventoPorOrg(orgId).subscribe(
         (data) => {
           this.eventData = data;

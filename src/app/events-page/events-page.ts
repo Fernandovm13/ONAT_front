@@ -1,5 +1,5 @@
 export interface EventsPage {
-  id: number;
+  id: string;
   nombreEvento: string;
   fecha: string;
   horaInicio: string;

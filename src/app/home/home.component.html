@@ -1,55 +1,10 @@
-  <div class="onat-landing-page">
-  
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-content"> 
-      <link rel="stylesheet" href="home.component.css">
-        <div class="hero-text">
-          <h1>Organización Nutriendo A Todos</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="hero-contact">
-            <span>(55) 1234-5678</span>
-            <span>NutriendoATodos</span>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img src="imagen1.png" alt="People with groceries">
-        </div>
-      </div>
-    </section>
-  
-    <!-- About Us Section -->
-    <section class="about-us">
-      <div class="container">
-        <h2>¿Quiénes somos?</h2>
-        <div class="about-us-content">
-          <div class="about-us-image">
-            <img src="imagen2.png" alt="Volunteer with food">
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      </div>
-    </section>
-  
-    <!-- How We Work Section -->
-    <section class="how-we-work">
-      <div class="container">
-        <h2>¿Cómo trabajamos?</h2>
-        <div class="work-steps">
-          <div class="work-step">
-            <div class="step-icon"><img src="icono1.png" alt=""></div>
-            <h3>Tú aporte</h3>
-          </div>
-          <div class="work-step">
-            <div class="step-icon"><img src="icono2.png" alt=""></div>
-            <h3>Lo transformamos</h3>
-          </div>
-          <div class="work-step">
-            <div class="step-icon"><img src="icono3.png" alt=""></div>
-            <h3>Lo distribuimos</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-  </div>
+<div class="onat-landing-page">
+  <app-hero-section
+  [titleHero] ="titleHero"
+  [subtitleHero] ="subtitleHero"
+  [contactoNumero] ="contactoNumero"
+  [contactoCorreo] ="contactoCorreo"
+  />
+  <app-abount-us-section [paragramAbount]="paragramAbount" />
+  <app-how-we-work-section />
+</div>

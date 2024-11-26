@@ -1,26 +1,27 @@
 <div class="event-history-container">
-  <h2>Historial de Eventos</h2>
+  <div class="event-history-content">
+    <h2>Historial de Eventos</h2>
 
-  <button (click)="mostrarEventosPorOrg()" class="btn btn-primary">Mostrar Eventos</button>
-  <div *ngIf="eventData" class="event-list">
-    <h3>Eventos Publicados:</h3>
-    <ul>
-      <li *ngFor="let event of eventData.events" class="event-item">
-        <h4>{{ event.nombreEvento }}</h4>
-        <p><strong>Fecha:</strong> {{ event.fecha }}</p>
-        <p><strong>Hora de Inicio:</strong> {{ event.horaInicio }}</p>
-        <p><strong>Hora de Finalización:</strong> {{ event.horaFinal }}</p>
-        <p><strong>Dirección:</strong> {{ event.direccion }}</p>
-        <p><strong>Descripción:</strong> {{ event.descripcion }}</p>
-      </li>
-    </ul>
-  </div>
+    <div *ngIf="eventData" class="event-list">
+      <h3>Eventos Publicados:</h3>
+      <ul>
+        <li *ngFor="let event of eventData.events" class="event-item">
+          <h4>{{ event.nombreEvento }}</h4>
+          <p><strong>Fecha:</strong> {{ event.fecha }}</p>
+          <p><strong>Hora de Inicio:</strong> {{ event.horaInicio }}</p>
+          <p><strong>Hora de Finalización:</strong> {{ event.horaFinal }}</p>
+          <p><strong>Dirección:</strong> {{ event.direccion }}</p>
+          <p><strong>Descripción:</strong> {{ event.descripcion }}</p>
+        </li>
+      </ul>
+    </div>
 
-  <div *ngIf="eventData && eventData.length === 0" class="no-events">
-    <p>No se encontraron eventos para esta organización.</p>
-  </div>
+    <div *ngIf="eventData && eventData.length === 0" class="no-events">
+      <p>No se encontraron eventos para esta organización.</p>
+    </div>
 
-  <div *ngIf="!eventData" class="loading">
-    <p>Haga clic en "Mostrar Eventos" para ver los eventos publicados.</p>
+    <div *ngIf="!eventData" class="loading">
+      <p>Haga clic en "Mostrar Eventos" para ver los eventos publicados.</p>
+    </div>
   </div>
 </div>

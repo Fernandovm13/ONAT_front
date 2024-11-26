@@ -1,0 +1,17 @@
+<div class="container">
+  <!-- Formulario para seleccionar la fecha de publicación -->
+  <form [formGroup]="productsForm">
+    <!-- Lista de productos para seleccionar -->
+    <div class="form-group">
+      <label for="productos">Seleccionar Productos:</label>
+      <div *ngFor="let product of productsData">
+        <input
+          type="checkbox"
+          [value]="product._id"
+          (change)="onCheckboxChange($event)"
+        />
+        {{ product.nombreProducto }}
+      </div>
+    </div>
+  </form>
+</div>

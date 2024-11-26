@@ -6,8 +6,7 @@
 
     <form
       class="event-form"
-      [formGroup]="eventsForm"
-      (ngSubmit)="agregarEvento()"
+      [formGroup]="eventsForm" (ngSubmit)="agregarEvento()"
     >
       <div class="form-grid">
         <div class="form-column">
@@ -81,39 +80,19 @@
         </div>
 
         <div class="form-column">
-          <!-- <div class="form-group">
-                            <label>Sube una imagen no mayor a 1GB</label>
-                            <div class="upload-area">
-                                <img src="icono6.png" alt="Upload" class="upload-icon">
-                            </div>
-                        </div> -->
-
-          <!-- <div class="form-group">
-                            <label>Selecciona los productos que puedes recibir:</label>
-                            <div class="checkbox-grid">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="productos" value="atun">
-                                    <span>Atún</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="productos" value="frijol">
-                                    <span>Frijol</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="productos" value="arroz">
-                                    <span>Arroz</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="productos" value="sopas">
-                                    <span>Sopas/Pasta</span>
-                                </label>
-                            </div>
-                        </div> -->
-
-          <button type="submit" class="btn btn-create">CREAR</button>
+          <app-add-product (productosSeleccionados)="onProductosSeleccionados($event)"></app-add-product>
+          <!-- <div class="showPost">
+            <button (click)="togglePostComponent()">Mostrar Post</button>
+            <app-add-product *ngIf="showPostComponent"></app-add-product>
+          </div> -->
+          <button type="submit">Crear Evento</button>
         </div>
       </div>
     </form>
+
+    <button class="btn btn-create" routerLink="/eventshistory">
+      control de eventos
+    </button>
 
     <div class="history-section">
       <div class="history-content">
@@ -124,7 +103,7 @@
         />
         <div class="history-text">
           <h2>¿Quieres ver quien te dono?</h2>
-          <button class="btn btn-history" routerLink="/historydonation">
+          <button class="btn btn-history" routerLink="/orgdashboard">
             VER HISTORIAL
             <span class="lock-icon"></span>
           </button>
