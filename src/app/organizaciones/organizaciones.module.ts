@@ -7,16 +7,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { OrgDashboardModule } from './org-dashboard/org-dashboard.module';
+import { InCardComponent } from './in-card/in-card.component';
 
 @NgModule({
 
-  declarations: [OrganizacionesComponent, CardsOrgComponent, FormOrgComponent],
+  declarations: [OrganizacionesComponent, CardsOrgComponent, FormOrgComponent, InCardComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterLink,
     OrgDashboardModule,
+    
   ],
 })
 export class OrganizacionesModule {}

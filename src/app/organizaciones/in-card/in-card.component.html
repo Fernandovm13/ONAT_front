@@ -1,0 +1,14 @@
+<div class="organizations-grid">
+    <div class="org-card" *ngFor="let org of organizations">
+      <img [src]="org.imagen"  class="org-logo">
+      <h2 class="org-name"> {{org.nombre}}</h2>
+      <div class="contact-icons">
+        <a *ngIf="org.telefono" [href]="'tel:' + org.telefono" class="icon icon-phone">
+          <img src="icono4.png" alt="Teléfono">
+        </a>
+        <a *ngIf="org.correo" [href]="'mailto:' + org.correo" class="icon icon-email">
+          <img src="icono5.png" alt="Correo electrónico">
+        </a>
+      </div>
+    </div>
+  </div>

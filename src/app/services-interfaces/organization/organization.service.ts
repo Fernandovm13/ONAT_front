@@ -8,12 +8,12 @@ import { Organization } from './organization';
   providedIn: 'root',
 })
 export class OrganizacionService {
-  private baseUrl = 'http://127.0.0.1:5000';
+  private baseUrl = 'https://onatapi.integrador.xyz/organizaciones';
 
   constructor(private http: HttpClient) {}
 
   crearOrganizacion(data: FormData): Observable<Organization> {
-    return this.http.post<Organization>(`${this.baseUrl}/organizaciones`, data);
+    return this.http.post<Organization>(`${this.baseUrl}/crear_org`, data);
   }
 
   loginOrganizacion(login: Organization): Observable<any> {
@@ -28,9 +28,9 @@ export class OrganizacionService {
     return !!localStorage.getItem('authToken');
   }
 
-  obtenerOrganizaciones(): Observable<Organization> {
-    return this.http.get<Organization>(
-      `${this.baseUrl}/obtener_organizaciones`
+  obtenerOrganizaciones(): Observable<Organization[]> {
+    return this.http.get<Organization[]>(
+      `${this.baseUrl}/obtenerOrg`
     );
   }
 
@@ -43,7 +43,7 @@ export class OrganizacionService {
       `Bearer ${localStorage.getItem('authToken')}`
     );
     return this.http.put(
-      `${this.baseUrl}/actualizar_organizaciones/${id}`,
+      `${this.baseUrl}/editarOrg/${id}`,
       data,
       { headers }
     );
@@ -54,7 +54,7 @@ export class OrganizacionService {
       'Authorization',
       `Bearer ${localStorage.getItem('authToken')}`
     );
-    return this.http.delete(`${this.baseUrl}/eliminar_organizacion/${id}`, {
+    return this.http.delete(`${this.baseUrl}/eliminarOrg/${id}`, {
       headers,
     });
   }
