@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
-import { Router } from '@angular/router';
 import { AlertService } from '../../alert/alert.service';
 @Component({
   selector: 'app-login',
@@ -12,7 +11,9 @@ import { AlertService } from '../../alert/alert.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private orgService: OrganizacionService, private fb: FormBuilder){}
+  constructor(private orgService: OrganizacionService, private fb: FormBuilder
+    ,private alertService: AlertService
+  ){}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -36,8 +37,5 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  navigateTo(route: string) {
-    this.router.navigateByUrl(route);
-    return false; 
-  }
+  
 }

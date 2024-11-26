@@ -28,8 +28,8 @@ export class OrganizacionService {
     return !!localStorage.getItem('authToken');
   }
 
-  obtenerOrganizaciones(): Observable<Organization> {
-    return this.http.get<Organization>(
+  obtenerOrganizaciones(): Observable<Organization[]> {
+    return this.http.get<Organization[]>(
       `${this.baseUrl}/obtener_organizaciones`
     );
   }

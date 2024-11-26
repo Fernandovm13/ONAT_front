@@ -7,7 +7,7 @@ import { EventsPage } from '../events-page';
   providedIn: 'root',
 })
 export class EventsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://onatapi2.integrador.xyz:3000';
 
   constructor(private http: HttpClient) {}
 

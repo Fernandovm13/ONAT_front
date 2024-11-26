@@ -15,8 +15,11 @@ export class FormOrgComponent implements OnInit {
   orgForm: FormGroup;
   cp: number = 0;
   colonias: string[] = [];
-  
+  selectedFile: File | null = null; // Archivo seleccionado
   colonia: string = '';
+  uploadMessage: string = '';
+  fileInput: any;
+
   
 
   constructor(
@@ -42,23 +45,8 @@ export class FormOrgComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.cp);
   }
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      this.orgForm.patchValue({ imagen: file }); // Actualiza el control del formulario
-    }
-  }
-  triggerFileInput(): void {
-    this.fileInput.nativeElement.click();
-  }
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      this.orgForm.patchValue({ imagen: file }); // Actualiza el control del formulario
-    }
-  }
+
+
   triggerFileInput(): void {
     this.fileInput.nativeElement.click();
   }
