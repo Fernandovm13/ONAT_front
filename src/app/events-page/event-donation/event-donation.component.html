@@ -1,96 +1,102 @@
-<main class="main-content">
-    <div class="container">
-      <link rel="stylesheet" href="event-donation.component.css">
-      <h1>{{ selectedOrg?.nombre || 'Cargando organización...' }}</h1>
-  
-      <div class="content-grid" *ngIf="selectedOrg">
-        <div class="org-info">
-          <!-- <img [src]="selectedOrg.imagenUrl || 'imagen3.png'" alt="Logo" class="org-logo"> -->
-          <!-- <p class="org-description">{{ selectedOrg.descripcion || 'Descripción no disponible' }}</p> -->
+  <main class="main-content">
+      <div class="container">
+        <link rel="stylesheet" href="event-donation.component.css">
+        <h1>{{ selectedEvent?.nombreEvento }}</h1>
+    
+        <div class="content-grid">
+          <div class="org-info">
+            <div class="event-details">
+              <p><strong>Fecha:</strong> {{ selectedEvent?.fecha |  date: 'dd MMM, yyyy' }}</p>
+              <p><strong>Hora de inicio:</strong> {{ selectedEvent?.horaInicio }}</p>
+              <p><strong>Hora de finalizacion:</strong> {{ selectedEvent?.horaFinal }}</p>
+              <p><strong>Descripción:</strong> {{ selectedEvent?.descripcion }}</p>
+              <p><strong>Lugar:</strong> {{ selectedEvent?.direccion }}</p>
+              <!-- <p><strong>Organizador:</strong> {{ selectedEvent?.organizador }}</p> -->
+            </div>
+          </div>
+    
+          <form class="donation-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="correo">Correo electrónico:</label>
+              <input type="email" id="correo" name="correo" required>
+            </div>
+    
+            <div class="form-group">
+              <label for="tipo-donacion">Tipo de donación:</label>
+              <div class="select-wrapper">
+                <select id="tipo-donacion" name="tipo-donacion" required>
+                  <option value="monetaria">Solo una vez</option>
+                  <option value="membresia">Membresía</option>
+                </select>
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label>Lista de productos:</label>
+              <table class="products-table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Equivalencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Atún</td>
+                    <td>
+                      <select class="quantity-select">
+                        <option>1 kg</option>
+                      </select>
+                    </td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <td>Frijol</td>
+                    <td>
+                      <select class="quantity-select">
+                        <option>1 kg</option>
+                      </select>
+                    </td>
+                    <td>$30</td>
+                  </tr>
+                  <tr>
+                    <td>Arroz</td>
+                    <td>
+                      <select class="quantity-select">
+                        <option>1 kg</option>
+                      </select>
+                    </td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <td>Sopa/Pasta</td>
+                    <td>
+                      <select class="quantity-select">
+                        <option>200g</option>
+                      </select>
+                    </td>
+                    <td>$15</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="form-note">*Puedes seleccionar una cantidad máxima de 3 pzs. de un producto</p>
+            </div>
+    
+            <button type="submit" class="btn btn-submit">DONAR</button>
+          </form>
         </div>
-  
-        <form class="donation-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-              <label for="apellido">Apellido:</label>
-              <input type="text" id="apellido" name="apellido" required>
-            </div>
-          </div>
-  
-          <div class="form-group">
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-          </div>
-  
-          <div class="form-group">
-            <label for="tipo-donacion">Tipo de donación:</label>
-            <div class="select-wrapper">
-              <select id="tipo-donacion" name="tipo-donacion" required>
-                <option value="monetaria">Solo una vez</option>
-                <option value="membresia">Membresía</option>
-              </select>
-            </div>
-          </div>
-  
-          <div class="form-group">
-            <label>Lista de productos:</label>
-            <table class="products-table">
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Cantidad</th>
-                  <th>Equivalencia</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Atún</td>
-                  <td>
-                    <select class="quantity-select">
-                      <option>1 kg</option>
-                    </select>
-                  </td>
-                  <td>$20</td>
-                </tr>
-                <tr>
-                  <td>Frijol</td>
-                  <td>
-                    <select class="quantity-select">
-                      <option>1 kg</option>
-                    </select>
-                  </td>
-                  <td>$30</td>
-                </tr>
-                <tr>
-                  <td>Arroz</td>
-                  <td>
-                    <select class="quantity-select">
-                      <option>1 kg</option>
-                    </select>
-                  </td>
-                  <td>$20</td>
-                </tr>
-                <tr>
-                  <td>Sopa/Pasta</td>
-                  <td>
-                    <select class="quantity-select">
-                      <option>200g</option>
-                    </select>
-                  </td>
-                  <td>$15</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="form-note">*Puedes seleccionar una cantidad máxima de 3 pzs. de un producto</p>
-          </div>
-  
-          <button type="submit" class="btn btn-submit">DONAR</button>
-        </form>
       </div>
-    </div>
-  </main>
-  
+    </main>
+    

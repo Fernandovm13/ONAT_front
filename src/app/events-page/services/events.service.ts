@@ -59,6 +59,13 @@ export class EventsService {
     );
   }
 
+  obtenerEventoPorId(_id: string): Observable<EventsPage> {
+    return this.http.get<EventsPage>(
+      `${this.baseUrl}/api/events/mostrarEventosPorID/${_id}`
+    );
+  }
+  
+
   getToken(): string | null {
     return localStorage.getItem('authToken');
   }

@@ -1,9 +1,10 @@
 export interface EventsPage {
-  id: string;
+  _id: string;
   nombreEvento: string;
   fecha: string;
   horaInicio: string;
   horaFinal: string;
   lugar: string;
-  
+  descripcion: string;
+  direccion: Date
 }

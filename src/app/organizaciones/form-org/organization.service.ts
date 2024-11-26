@@ -34,8 +34,8 @@ export class OrganizacionService {
     );
   }
 
-  obtenerOrganizacionesPorId(id: string): Observable<Organization[]> {
-    return this.http.get<Organization[]>(
+  obtenerOrganizacionesPorId(id: string): Observable<Organization> {
+    return this.http.get<Organization>(
       `${this.baseUrl}/organizaciones/obtenerOrgPorId/${id}`
     );
   }

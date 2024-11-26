@@ -4,11 +4,9 @@
   <div class="events-grid">
     <div *ngFor="let event of eventData" class="event-card">
       <div class="event-datetime">{{ event.fecha }}</div>
-      <!-- <img [src]="event.imagenUrl || 'placeholder.png'" alt="{{ event.nombreEvento }}" class="event-logo"> -->
       <h2 class="event-title">{{ event.nombreEvento }}</h2>
       <p class="event-address">{{ event.lugar }}</p>
-      <!-- <p class="event-organization">{{ event.organizacion }''}</p> -->
-      <button class="btn btn-donate" routerLink="[/eventdonation, ]" >DONAR</button>
+      <button class="btn btn-donate" [routerLink]="['/eventdonation', event._id]">DONAR</button>
     </div>
   </div>
 </div>
