@@ -21,17 +21,26 @@ export class PostsService {
     throw new Error('Token no encontrado');
   }
 
-   createPost(
-    orgId: string[],
-    productosIds: string[],
-  ): Observable<Post> {
-    const postData ={
+  createPost(orgId: string[], productosIds: string[], eventId: string): Observable<Post> {
+    const postData = {
       orgId,
       productosIds,
-    }
-    console.log('dataForm', postData)
-     return this.http.post<Post>(`${this.baseUrl}/api/post/`, postData,
-      {  headers: this.getAuthHeaders(),}
-     ) ;
+      eventId
+    };
+    console.log('dataForm', postData);
+    return this.http.post<Post>(`${this.baseUrl}/api/post/`, postData, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  obtenerPost(_id: string): Observable<Post> {
+    return this.http.get<Post>(
+      `${this.baseUrl}/api/post/obtenerProductos/${_id}`
+    );
+  }
+  obtenerProductoPorPost(_id: string): Observable<Post> {
+    return this.http.get<Post>(
+      `${this.baseUrl}/api/post/obtenerProductosByIdPost/${_id}`
+    );
   }
 }

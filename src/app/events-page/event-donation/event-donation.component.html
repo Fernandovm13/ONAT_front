@@ -15,7 +15,7 @@
             </div>
           </div>
     
-          <form class="donation-form">
+          <form class="donation-form" [formGroup]="donacionForm" (ngSubmit)="realizarDonacion()">
             <div class="form-row">
               <div class="form-group">
                 <label for="nombre">Nombre:</label>
@@ -33,9 +33,9 @@
             </div>
     
             <div class="form-group">
-              <label for="tipo-donacion">Tipo de donación:</label>
+              <label for="tipodonacion">Tipo de donación:</label>
               <div class="select-wrapper">
-                <select id="tipo-donacion" name="tipo-donacion" required>
+                <select id="tipodonacion" name="tipodonacion" required>
                   <option value="monetaria">Solo una vez</option>
                   <option value="membresia">Membresía</option>
                 </select>
@@ -53,41 +53,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Atún</td>
+                  <tr *ngFor="let product of productos">
+                    <td>{{product.nombreProducto}}</td>
                     <td>
                       <select class="quantity-select">
-                        <option>1 kg</option>
+                        <option value="1">1 kg</option>
+                        <option value="2">2 kg</option>
+                        <option value="3">3 kg</option>
                       </select>
                     </td>
-                    <td>$20</td>
-                  </tr>
-                  <tr>
-                    <td>Frijol</td>
-                    <td>
-                      <select class="quantity-select">
-                        <option>1 kg</option>
-                      </select>
-                    </td>
-                    <td>$30</td>
-                  </tr>
-                  <tr>
-                    <td>Arroz</td>
-                    <td>
-                      <select class="quantity-select">
-                        <option>1 kg</option>
-                      </select>
-                    </td>
-                    <td>$20</td>
-                  </tr>
-                  <tr>
-                    <td>Sopa/Pasta</td>
-                    <td>
-                      <select class="quantity-select">
-                        <option>200g</option>
-                      </select>
-                    </td>
-                    <td>$15</td>
+                    <td>{{product.precioBase}}</td>
                   </tr>
                 </tbody>
               </table>

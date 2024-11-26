@@ -27,7 +27,6 @@ export class CreateEventComponent {
       horaFinal: ['', Validators.required],
       direccion: ['', Validators.required],
       descripcion: ['', Validators.required],
-      idOrg: [''],
     });
   }
   onProductosSeleccionados(productos: string[]) {
@@ -48,33 +47,24 @@ export class CreateEventComponent {
           return;
         }
   
-        // Actualizamos el formulario con idOrg antes de enviar los datos
-        this.eventsForm.patchValue({
-          idOrg: idOrg
-        });
-  
-        // Ahora enviamos los datos del formulario con el idOrg incluido
-        this.postsService.createPost(idOrg, productsIds).subscribe(
-          (postResponse) => {
-            console.log('Post creado con éxito:', postResponse);
-  
-            this.eventsService.CrearEvento(this.eventsForm.value).subscribe(
-              (eventResponse) => {
-                console.log('Evento creado con éxito:', eventResponse);
-                alert('El evento y los productos se han creado correctamente.');
-                this.eventsForm.reset();
-              },
-              (eventError) => {
-                console.error('Error al crear el evento:', eventError);
-                alert('Hubo un error al guardar el evento.');
-              }
-            );
+        const formData = { 
+          ...this.eventsForm.value,
+          idOrg,
+          productsIds
+        };
+        this.eventsService.CrearEvento(formData).subscribe(
+          (eventResponse) => {
+            console.log('Evento creado con éxito:', eventResponse);
+            alert('El evento y los productos se han creado correctamente.');
+            this.eventsForm.reset();
           },
-          (postError) => {
-            console.error('Error al guardar el post:', postError);
-            alert('Hubo un error al guardar los productos del evento.');
+          (eventError) => {
+            console.error('Error al crear el evento:', eventError);
+            alert('Hubo un error al guardar el evento.');
           }
         );
+        // Ahora enviamos los datos del formulario con el idOrg incluido
+        
       } else {
         alert('No se encontró el token de autenticación.');
       }
