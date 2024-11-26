@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CodigoPostal, CodigoPostalResponse } from '../services-interfaces/codigo-postal';
+import { CodigoPostal, CodigoPostalResponse } from './codigo-postal';
 
 @Injectable({
   providedIn: 'root'

@@ -1,8 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { OrganizacionService } from '../../services-interfaces/organization.service';
-import { Organization } from '../../services-interfaces/organization';
-import { DriveService } from '../../services-interfaces/sdrive.service';
-import { Drive } from '../../services-interfaces/drive';
+import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
+import { Organization } from '../../services-interfaces/organization/organization';
+import { DriveService } from '../../services-interfaces/drive/sdrive.service';
+import { Drive } from '../../services-interfaces/drive/drive';
 import { DomSanitizer,SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-in-card',

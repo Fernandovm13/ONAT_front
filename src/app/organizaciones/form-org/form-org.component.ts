@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Organization } from '../../services-interfaces/organization';
-import { OrganizacionService } from '../../services-interfaces/organization.service';
-import { CodigoPostalService } from '../../services-interfaces/codigo-postal.service';
+import { Organization } from '../../services-interfaces/organization/organization';
+import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
+import { CodigoPostalService } from '../../services-interfaces/cp/codigo-postal.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { CodigoPostal, CodigoPostalResponse } from '../../services-interfaces/codigo-postal';
-import { DriveService } from '../../services-interfaces/sdrive.service';
+import { CodigoPostal, CodigoPostalResponse } from '../../services-interfaces/cp/codigo-postal';
+import { DriveService } from '../../services-interfaces/drive/sdrive.service';
 
 @Component({
   selector:'app-form-org',
@@ -43,7 +43,6 @@ export class FormOrgComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.cp);
-    // this.getPostalData(this.cp);
   }
 
   getPostalData(cpostal: any): void {
@@ -74,8 +73,6 @@ export class FormOrgComponent implements OnInit {
   }
 
   agregarOrg(): void {
-    // console.log(this.orgForm.value); //Muestra que datos se enviaron
-
     if (this.orgForm.valid) {
       const formData = new FormData();
       Object.keys(this.orgForm.value).forEach((key) => {
