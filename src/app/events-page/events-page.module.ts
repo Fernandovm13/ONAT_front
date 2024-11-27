@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { CatalogProductsComponent } from './catalog-products/catalog-products.component';
+import { EventsComponent } from './events/events.component';
 @NgModule({
   declarations: [
     EventDonationComponent,

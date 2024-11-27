@@ -8,7 +8,7 @@ import { Organization } from './organization';
   providedIn: 'root',
 })
 export class OrganizacionService {
-  private baseUrl = 'https://onatapi.integrador.xyz/organizaciones';
+  private baseUrl = 'https://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
