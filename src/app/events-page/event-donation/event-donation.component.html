@@ -1,77 +1,99 @@
-  <main class="main-content">
-      <div class="container">
-        <link rel="stylesheet" href="event-donation.component.css">
-        <h1>{{ selectedEvent?.nombreEvento }}</h1>
-    
-        <div class="content-grid">
-          <div class="org-info">
-            <div class="event-details">
-              <p><strong>Fecha:</strong> {{ selectedEvent?.fecha |  date: 'dd MMM, yyyy' }}</p>
-              <p><strong>Hora de inicio:</strong> {{ selectedEvent?.horaInicio }}</p>
-              <p><strong>Hora de finalizacion:</strong> {{ selectedEvent?.horaFinal }}</p>
-              <p><strong>Descripción:</strong> {{ selectedEvent?.descripcion }}</p>
-              <p><strong>Lugar:</strong> {{ selectedEvent?.direccion }}</p>
-              <!-- <p><strong>Organizador:</strong> {{ selectedEvent?.organizador }}</p> -->
-            </div>
+<main class="main-content">
+  <div class="container">
+    <link rel="stylesheet" href="event-donation.component.css" />
+    <h1>{{ selectedEvent?.nombreEvento }}</h1>
+
+    <div class="content-grid">
+      <div class="content-data">
+        <div class="org-info">
+          <div class="event-details">
+           <h2>Datos de la organización</h2>
+            <p>
+              <strong>Fecha:</strong>
+              {{ selectedEvent?.fecha | date : "dd MMM, yyyy" }}
+            </p>
+            <p>
+              <strong>Hora de inicio:</strong> {{ selectedEvent?.horaInicio }}
+            </p>
+            <p>
+              <strong>Hora de finalizacion:</strong>
+              {{ selectedEvent?.horaFinal }}
+            </p>
+            <p>
+              <strong>Descripción:</strong> {{ selectedEvent?.descripcion }}
+            </p>
+            <p><strong>Lugar:</strong> {{ selectedEvent?.direccion }}</p>
+            <!-- <p><strong>Organizador:</strong> {{ selectedEvent?.organizador }}</p> -->
           </div>
-    
-          <form class="donation-form" [formGroup]="donacionForm" (ngSubmit)="realizarDonacion()">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-              </div>
-              <div class="form-group">
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required>
-              </div>
-            </div>
-    
-            <div class="form-group">
-              <label for="correo">Correo electrónico:</label>
-              <input type="email" id="correo" name="correo" required>
-            </div>
-    
-            <div class="form-group">
-              <label for="tipodonacion">Tipo de donación:</label>
-              <div class="select-wrapper">
-                <select id="tipodonacion" name="tipodonacion" required>
-                  <option value="monetaria">Solo una vez</option>
-                  <option value="membresia">Membresía</option>
-                </select>
-              </div>
-            </div>
-    
-            <div class="form-group">
-              <label>Lista de productos:</label>
-              <table class="products-table">
-                <thead>
-                  <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Equivalencia</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let product of productos">
-                    <td>{{product.nombreProducto}}</td>
-                    <td>
-                      <select class="quantity-select">
-                        <option value="1">1 kg</option>
-                        <option value="2">2 kg</option>
-                        <option value="3">3 kg</option>
-                      </select>
-                    </td>
-                    <td>{{product.precioBase}}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p class="form-note">*Puedes seleccionar una cantidad máxima de 3 pzs. de un producto</p>
-            </div>
-    
-            <button type="submit" class="btn btn-submit">DONAR</button>
-          </form>
+        </div>
+        <div class="content-image">
+          <div class="image">
+            <img src="donation.png" alt="" />
+          </div>
         </div>
       </div>
-    </main>
-    
+      <form
+        class="donation-form"
+        [formGroup]="donacionForm"
+        (ngSubmit)="realizarDonacion()"
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="tipodonacion">Tipo de donación:</label>
+          <div class="select-wrapper">
+            <select id="tipodonacion" name="tipodonacion" required>
+              <option value="monetaria">Solo una vez</option>
+              <option value="membresia">Membresía</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Lista de productos:</label>
+          <table class="products-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Equivalencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productos">
+                <td>{{ product.nombreProducto }}</td>
+                <td>
+                  <select class="quantity-select">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                    <option value="3">3 kg</option>
+                  </select>
+                </td>
+                <td>{{ product.precioBase }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="form-note">
+            *Puedes seleccionar una cantidad máxima de 3 pzs. de un producto
+          </p>
+        </div>
+
+        <button type="submit" class="btn btn-submit">DONAR</button>
+      </form>
+    </div>
+  </div>
+</main>

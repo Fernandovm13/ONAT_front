@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(private orgService: OrganizacionService, private fb: FormBuilder
-    ,private alertService: AlertService
+    ,private alertService: AlertService,
+    private router:Router
   ){}
 
   ngOnInit(): void {
@@ -28,6 +29,8 @@ export class LoginComponent implements OnInit {
       this.orgService.loginOrganizacion(loginData).subscribe(
         (response) => {
           localStorage.setItem('authToken', response.token);
+          this.alertService.showSuccessAlert()
+          this.router.navigate(['/createevent'])
         },
         (error) => {
           console.error('Error al iniciar sesión', error);

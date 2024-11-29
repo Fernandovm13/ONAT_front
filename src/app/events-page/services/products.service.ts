@@ -6,7 +6,7 @@ import { Products } from '../products';
   providedIn: 'root',
 })
 export class productsService {
-  private baseUrl = 'http://onatapi2.integrador.xyz:3000';
+  private baseUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
 
   private getAuthHeaders(): HttpHeaders {

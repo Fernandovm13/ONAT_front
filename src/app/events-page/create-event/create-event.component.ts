@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EventsService } from '../services/events.service';
 import { PostsService } from '../services/posts.service';
 import { EventsPage } from '../events-page';
+import { AlertService } from '../../alert/alert.service';
+
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.component.html',
@@ -18,7 +20,8 @@ export class CreateEventComponent {
   constructor(
     private fb: FormBuilder,
     private eventsService: EventsService,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private alertService: AlertService
   ) {
     this.eventsForm = this.fb.group({
       nombreEvento: ['', Validators.required],
@@ -55,12 +58,12 @@ export class CreateEventComponent {
         this.eventsService.CrearEvento(formData).subscribe(
           (eventResponse) => {
             console.log('Evento creado con éxito:', eventResponse);
-            alert('El evento y los productos se han creado correctamente.');
+          this.alertService.showAlert('event-published')
             this.eventsForm.reset();
           },
           (eventError) => {
             console.error('Error al crear el evento:', eventError);
-            alert('Hubo un error al guardar el evento.');
+            this.alertService.showErrorAlert()
           }
         );
         // Ahora enviamos los datos del formulario con el idOrg incluido

@@ -3,7 +3,10 @@
 
   <div class="events-grid">
     <div *ngFor="let event of eventData" class="event-card">
-      <div class="event-datetime">{{ event.fecha }}</div>
+      <div class="event-image">
+        <img src="eventImage.png" alt="">
+      </div>
+      <div class="event-datetime">{{ event.fecha |  date: 'dd MMM, yyyy'}}</div>
       <h2 class="event-title">{{ event.nombreEvento }}</h2>
       <p class="event-address">{{ event.lugar }}</p>
       <button class="btn btn-donate" [routerLink]="['/eventdonation', event._id]">DONAR</button>
