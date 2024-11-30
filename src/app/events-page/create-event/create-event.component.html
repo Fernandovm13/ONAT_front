@@ -79,13 +79,11 @@
           </div>
         </div>
 
-        <div class="form-column">
-          <app-add-product (productosSeleccionados)="onProductosSeleccionados($event)"></app-add-product>
-          <!-- <div class="showPost">
-            <button (click)="togglePostComponent()">Mostrar Post</button>
-            <app-add-product *ngIf="showPostComponent"></app-add-product>
-          </div> -->
-          <button type="submit">Crear Evento</button>
+        <div class="event-form">
+          <app-add-product (productosSeleccionados)="onProductosSeleccionados($event)">
+
+          </app-add-product>
+          <button type="submit" class="btn btn-donate">Crear Evento</button>
         </div>
       </div>
     </form>

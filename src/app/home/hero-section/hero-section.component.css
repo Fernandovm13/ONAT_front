@@ -7,6 +7,8 @@
 
 .hero{
   background-color: #77B8E8;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.295);
   display: flex;
   border-radius: 10px;
   overflow: hidden;
@@ -60,7 +62,7 @@
 
 .hero-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   height: auto;
   border-radius: 10px;
 }
