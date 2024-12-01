@@ -24,4 +24,8 @@ export class productsService {
       headers: this.getAuthHeaders(),
     });
   }
+
+  mostrarProductos(_id:string): Observable<Products>{
+    return this.http.get<Products>(`${this.baseUrl}/api/product/${_id}`)
+  }
 }

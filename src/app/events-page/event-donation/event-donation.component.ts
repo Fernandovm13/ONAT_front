@@ -6,6 +6,7 @@ import { EventsService } from '../services/events.service';
 import { EventsPage } from '../events-page';
 import { PostsService } from '../services/posts.service';
 import { Post } from '../post';
+import { SdonationsService } from '../../services-interfaces/donation/sdonations.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -28,7 +29,8 @@ export class EventDonationComponent implements OnInit {
     private organizationService: OrganizacionService,
     private activatedRoute: ActivatedRoute,
     private eventsService: EventsService,
-    private postService: PostsService
+    private postService: PostsService,
+    private donationService: SdonationsService
   ) {
     this.donacionForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -105,5 +107,7 @@ export class EventDonationComponent implements OnInit {
     console.log("precio total", this.totalPrecio)
   }
 
-  realizarDonacion(): void {}
+  realizarDonacion(): void {
+    this.donationService.realizarDonacion
+  }
 }

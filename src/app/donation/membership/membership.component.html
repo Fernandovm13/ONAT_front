@@ -20,8 +20,8 @@
           </div>
           <div class="tier">{{ membership.plan }}</div>
           <ul class="benefits">
-            <li *ngFor="let benefit of obtenerBeneficios(membership)">
-              {{ benefit }}
+            <li *ngFor="let benefit of membership.contenido">
+              {{benefit.nombreProducto}}
             </li>
           </ul>
           <button class="btn btn-acquire" (click)="irADonacion(membership.id)">

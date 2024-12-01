@@ -8,15 +8,15 @@ import { Imembership } from './imembership';
 })
 export class SmembershipService {
 
-  private baseURL = "https://onatapi.integrador.xyz/membresias";
+  private baseURL = "http://127.0.0.1:5000";
 
   constructor(private http: HttpClient) { }
 
   getMembresias(): Observable<Imembership[]> {
-    return this.http.get<Imembership[]>(`${this.baseURL}/getM`);
+    return this.http.get<Imembership[]>(`${this.baseURL}/membresias/getM`);
   }
 
   obtenerMembresiaById(id: number): Observable<Imembership> {
-    return this.http.get<Imembership>(`${this.baseURL}/getM/${id}`);
+    return this.http.get<Imembership>(`${this.baseURL}/membresias/obtenerIdMembresia/${id}`);
   }
 }
