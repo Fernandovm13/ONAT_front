@@ -12,20 +12,33 @@ import { DirectDonationComponent } from './donation/direct-donation/direct-donat
 import { OrganizationalHistoryComponent } from './organizaciones/org-dashboard/organizational-history/organizational-history.component';
 import { OrgDashboardComponent } from './organizaciones/org-dashboard/org-dashboard.component';
 import { EventDonationComponent } from './events-page/event-donation/event-donation.component';
+import { AuthGuard } from './auth/aut-guardian.guard';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cardsorg', component: CardsOrgComponent },
   { path: 'login', component: LoginComponent },
   { path: 'formorg', component: FormOrgComponent },
-  { path: 'createevent', component: CreateEventComponent },
+  {
+    path: 'createevent',
+    component: CreateEventComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'events', component: EventsComponent },
   { path: 'membership', component: MembershipComponent },
   { path: 'membershipdonation', component: MembershipDonationComponent },
   { path: 'directdonation', component: DirectDonationComponent },
-  { path: 'orgdashboard', component: OrgDashboardComponent },
-  { path: 'eventshistory', component: OrganizationalHistoryComponent },
+  {
+    path: 'orgdashboard',
+    component: OrgDashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'eventshistory',
+    component: OrganizationalHistoryComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'eventdonation/:id', component: EventDonationComponent },
-
 ];
 
 @NgModule({

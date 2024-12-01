@@ -21,11 +21,15 @@ export class PostsService {
     throw new Error('Token no encontrado');
   }
 
-  createPost(orgId: string[], productosIds: string[], eventId: string): Observable<Post> {
+  createPost(
+    orgId: string[],
+    productosIds: string[],
+    eventId: string
+  ): Observable<Post> {
     const postData = {
       orgId,
       productosIds,
-      eventId
+      eventId,
     };
     console.log('dataForm', postData);
     return this.http.post<Post>(`${this.baseUrl}/api/post/`, postData, {
@@ -43,4 +47,6 @@ export class PostsService {
       `${this.baseUrl}/api/post/obtenerProductosByIdPost/${_id}`
     );
   }
+
+  
 }

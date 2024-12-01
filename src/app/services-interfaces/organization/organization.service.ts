@@ -58,4 +58,14 @@ export class OrganizacionService {
       headers,
     });
   }
+  validarToken(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(
+      `${this.baseUrl},/organizaciones/validarToken`,
+      headers
+    );
+  }
 }
