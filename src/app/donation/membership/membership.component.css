@@ -357,3 +357,15 @@ h1 {
 .contact-item:hover {
     text-decoration: underline;
 }
+
+.membership-card.Plata {
+    border: 2px solid #C0C0C0; 
+}
+
+.membership-card.Oro {
+    border: 2px solid #FFD700;
+}
+
+.membership-card.Diamante {
+    border: 2px solid #4FDEFF; 
+}

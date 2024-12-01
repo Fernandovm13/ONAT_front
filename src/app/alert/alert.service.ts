@@ -20,7 +20,7 @@ export class AlertService {
   showErrorAlert(): void {
     Swal.fire({
       title: 'Inicio de sesión fallido',
-      html: `<div class="s"><span>😵‍💫</span></div>`,
+      html: `<div class="emoji"><span>😵‍💫</span></div>`,
       confirmButtonText: 'Intente de nuevo',
       customClass: {
         popup: 'custom-alert error-alert',
@@ -68,6 +68,7 @@ export class AlertService {
 
       case 'thank-you':
         return Swal.fire({
+          title: '¡GRACIAS POR TU APOYO!',
           html: `<div class="emoji"><span>😍</span></div>`,
           confirmButtonText: 'OK',
           customClass: {

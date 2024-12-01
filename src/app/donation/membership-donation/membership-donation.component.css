@@ -1,15 +1,11 @@
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-areas: 
-        "content-grid-up content-grid-right"
-        "content-grid-down content-grid-right";
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 20px; 
+    flex-wrap: wrap; 
 }
 
 .main-content {
@@ -27,29 +23,63 @@
     margin-left: 250px;
 }
 
-/* Membership Card Styles */
 .membership-card {
-    background: #ffffff; 
+    background: #ffffff;
     border-radius: 10px;
+    display: flex;
     flex-direction: column;
-    padding: 30px;
-    text-align: center;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 30px;
+    height: 100%;
+    box-sizing: border-box;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #FFD700; 
     position: relative;
     max-width: 400px;
     max-height: 350px;
+    flex-basis: 30%; /* Esto hace que las cards se alineen horizontalmente */
+}
 
+.membership-card.Plata {
+    border: 2px solid #C0C0C0; 
+}
+
+.membership-card.Oro {
+    border: 2px solid #FFD700; 
+}
+
+.membership-card.Diamante {
+    border: 2px solid #4FDEFF; 
+}
+
+.tier {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.membership-card.Plata .tier {
+    color: #C0C0C0; 
+}
+
+.membership-card.Oro .tier {
+    color: #FFD700; 
+}
+
+.membership-card.Diamante .tier {
+    color: #4FDEFF;
 }
 
 .content-grid-up,
 .content-grid-down {
-    width: 100%; 
+    width: 100%;
     background: #e3f2fd;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    flex-basis: 30%; /* Esto hace que las secciones también se alineen horizontalmente */
 }
 
 .content-grid-up {
@@ -59,7 +89,6 @@
 .content-grid-down {
     grid-area: content-grid-down;
 }
-
 
 .price {
     font-size: 2.5em;
@@ -77,7 +106,7 @@
 }
 
 .tier {
-    color: #FFD700; 
+    color: #FFD700;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -89,16 +118,15 @@
 
 .benefits li {
     margin-bottom: 10px;
-    color: #7d7d7d; 
+    color: #7d7d7d;
     text-align: center;
-
 }
 
 /* Donation Form Styles */
 .donation-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;    
+    gap: 20px;
 }
 
 .form-row {
@@ -115,7 +143,7 @@
 
 .form-group label {
     margin-bottom: 5px;
-    color: #003366; 
+    color: #003366;
     font-weight: 600;
 }
 
@@ -129,34 +157,16 @@ option {
     background: #fff;
 }
 
-.select-wrapper {
-    position: relative;
-}
-
-.select-wrapper::after {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 12px;
-    color: #7d7d7d; 
-}
-
 .btn-submit {
     width: 100%;
-    background-color: #E7AF3E; 
-    color: black; 
+    background-color: #E7AF3E;
+    color: black;
     padding: 15px;
     font-size: 1.1em;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .nav {
-        display: none;
-    }
-    
     .content-grid {
         grid-template-columns: 1fr;
     }
@@ -164,22 +174,16 @@ option {
     .form-row {
         grid-template-columns: 1fr;
     }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+
+    .container {
+        flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+        gap: 20px; /* Espacio entre las secciones */
     }
-    
-    .footer-right {
-        justify-content: center;
-    }
-    
-    .contact-info {
-        align-items: center;
-    }
-    
-    .contact-item {
-        justify-content: center;
+
+    .membership-card,
+    .content-grid-up,
+    .content-grid-down {
+        max-width: 100%; /* Las secciones ocupan el 100% en pantallas pequeñas */
     }
 }
 
@@ -187,15 +191,11 @@ option {
 input:focus,
 select:focus {
     outline: none;
-    border-color: #007bb8; 
+    border-color: #007bb8;
     box-shadow: 0 0 0 2px rgba(119, 184, 232, 0.2);
 }
 
 /* Button Hover States */
 .btn-submit:hover {
-    background-color: #e4a72e; 
-}
-
-.contact-item:hover {
-    text-decoration: underline;
+    background-color: #e4a72e;
 }
