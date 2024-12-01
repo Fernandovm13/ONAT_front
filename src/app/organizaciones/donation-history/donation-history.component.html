@@ -1,46 +1,49 @@
+<div class="container">
+  <div class="donations-table-container">
+    <link rel="stylesheet" href="donation-history.component.css" />
 
-    <div class="container">
-      <div class="donations-table-container">
-        <link rel="stylesheet" href="donation-history.component.css">
-  
-        <div class="table-controls">
-          <button class="btn btn-refresh" (click)="actualizarDonaciones()">
-            Actualizar
-            <img src="icono11.png" alt="Actualizar" class="refresh-icon">
-          </button>
-        </div>
-  
-        <div *ngIf="mensajeError" class="error">
-          {{ mensajeError }}
-        </div>
-  
-        <div class="table-wrapper">
-          <table class="donations-table" *ngIf="donaciones.length > 0; else noData">
-            <thead>
-              <tr>
-                <th>Folio</th>
-                <th>Tipo de donación</th>
-                <th>Nacionalidad</th>
-                <th>Donador</th>
-                <th>Cantidad</th>
-                <th>Correo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let donacion of donaciones; let i = index">
-                <td>{{ i + 1}}</td>
-                <td>{{ donacion.tipo_donacion === 'unica' ? 'Única' : "Membresía" }}</td>
-                <td>{{ donacion.nacionalidad }}</td>
-                <td>{{ donacion.nombre }} {{ donacion.apellido_p }}</td>
-                <td>{{ donacion.cantidad | currency: 'MXN' }}</td>
-                <td>{{ donacion.correo }}</td>
-              </tr>
-            </tbody>
-          </table>
-          <ng-template #noData>
-            <p>No se encontraron donaciones.</p>
-          </ng-template>
-        </div>
-      </div>
+    <div class="table-controls">
+      <button class="btn btn-refresh" (click)="actualizarDonaciones()">
+        Actualizar
+        <img src="icono11.png" alt="Actualizar" class="refresh-icon" />
+      </button>
     </div>
-  
+
+    <div *ngIf="mensajeError" class="error">
+      {{ mensajeError }}
+    </div>
+
+    <div class="table-wrapper">
+      <table class="donations-table" *ngIf="donaciones.length > 0; else noData">
+        <thead>
+          <tr>
+            <th>Folio</th>
+            <th>Tipo de donación</th>
+            <th>Nacionalidad</th>
+            <th>Donador</th>
+            <th>Cantidad</th>
+            <th>Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let donacion of donaciones; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ donacion.tipo_donacion === "unica" ? "Única" : "Membresía" }}
+            </td>
+            <td>{{ donacion.nacionalidad }}</td>
+            <td>{{ donacion.nombre }} {{ donacion.apellido_p }}</td>
+            <td>{{ donacion.cantidad | currency : "MXN" }}</td>
+            <td>{{ donacion.correo }}</td>
+            <td>
+             
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #noData>
+        <p>No se encontraron donaciones.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

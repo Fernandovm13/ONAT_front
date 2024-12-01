@@ -8,6 +8,7 @@ import { EventsPage } from '../events-page';
 })
 export class EventsService {
   private baseUrl = 'http://localhost:3000';
+  private eventoEdit: EventsPage | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -36,7 +37,7 @@ export class EventsService {
     );
   }
 
-  actualizarEventos(id: number, data: Partial<EventsPage>): Observable<any> {
+  actualizarEventos(id: string, data: Partial<EventsPage>): Observable<any> {
     return this.http.put(
       `${this.baseUrl}/api/events/modificarEvento/${id}`,
       data,
@@ -44,13 +45,13 @@ export class EventsService {
     );
   }
 
-  eliminarEvento(id: number): Observable<any> {
+  eliminarEvento(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/api/events/eliminarEvento/${id}`, {
       headers: this.getAuthHeaders(),
     });
   }
 
-  obtenerEventoPorOrg(id: number): Observable<any> {
+  obtenerEventoPorOrg(id: string): Observable<any> {
     return this.http.get(
       `${this.baseUrl}/api/events/encontrarEventosPorOrg/${id}`,
       {
@@ -65,6 +66,18 @@ export class EventsService {
     );
   }
   
+  setEventoEdit(evento: EventsPage) {
+    this.eventoEdit = evento;
+  }
+
+  getEventoEdit(): EventsPage | null {
+    return this.eventoEdit;
+  }
+
+
+  clearEventoEdit() {
+    this.eventoEdit = null;
+  }
 
   getToken(): string | null {
     return localStorage.getItem('authToken');

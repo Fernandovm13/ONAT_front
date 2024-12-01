@@ -28,7 +28,7 @@ export class DonationHistoryComponent implements OnInit {
     });
   }
   
-  
+ 
 
   // Método para actualizar la tabla
   actualizarDonaciones(): void {

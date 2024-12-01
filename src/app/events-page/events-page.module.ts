@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { CatalogProductsComponent } from './catalog-products/catalog-products.component';
@@ -20,6 +21,6 @@ import { CatalogProductsComponent } from './catalog-products/catalog-products.co
     CatalogProductsComponent,
     EventsComponent
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
 })
 export class EventsPageModule {}

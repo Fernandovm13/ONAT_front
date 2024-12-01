@@ -50,7 +50,7 @@ export class EventsService {
     });
   }
 
-  obtenerEventoPorOrg(id: number): Observable<any> {
+  obtenerEventoPorOrg(id: string): Observable<any> {
     return this.http.get(
       `${this.baseUrl}/api/events/encontrarEventosPorOrg/${id}`,
       {
@@ -65,6 +65,8 @@ export class EventsService {
     );
   }
   
+  
+
 
   getToken(): string | null {
     return localStorage.getItem('authToken');
