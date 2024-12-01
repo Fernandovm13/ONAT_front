@@ -1,55 +1,80 @@
-    <main class="main-content">
-        <div class="container">      
-        <link rel="stylesheet" href="membership-donation.component.css">
-            <div class="content-grid">
-                <div class="membership-card">
-                    <h2>Membresía</h2>
-                    <div class="price">
-                        <span class="currency">$</span>
-                        <span class="amount">300</span>
-                        <span class="cents">.00</span>
-                    </div>
-                    <div class="tier">ORO</div>
-                    <ul class="benefits">
-                        <li>6 Atunes</li>
-                        <li>2 Kg. Frijol</li>
-                        <li>2 Kg. Arroz</li>
-                        <li>1 kg. Sopa/Pasta</li>
-                    </ul>
-                </div>
+<main class="main-content">
+  <div class="container">
+      <div class="content-grid">
+          <div 
+            class="membership-card"
+            [ngClass]="{
+              'Plata': membresia?.plan === 'Plata',
+              'Oro': membresia?.plan === 'Oro',
+              'Diamante': membresia?.plan === 'Diamante'
+            }"
+          >
+              <h2>Membresía</h2>
+              <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">{{ membresia?.costo | number: '1.0-0' }}</span>
+                  <span class="cents">.00</span>
+              </div>
+              <div class="tier">{{ membresia?.plan }}</div>
+              <ul class="benefits">
+                  <li *ngFor="let beneficio of obtenerBeneficios(membresia)">
+                      {{ beneficio }}
+                  </li>
+              </ul>
+          </div>
 
-                <form class="donation-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" id="apellido" name="apellido" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="correo">Correo:</label>
-                        <input type="email" id="correo" name="correo" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="evento">Evento/Programa a donar:</label>
-                        <div class="select-wrapper">
-                            <select id="evento" name="evento" required>
-                                <option value="">Seleccionar evento</option>
-                                <option value="evento1">Evento 1</option>
-                                <option value="evento2">Evento 2</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-submit">DONAR</button>
-                </form>
-            </div>
-        </div>
-    </main>
-
-  
+          <div class="form-container">
+              <form class="donation-form" [formGroup]="donacionForm" (ngSubmit)="onSubmit()">
+                  <div class="content-grid-up">
+                      <h3>DATOS PERSONALES</h3>
+                      <div class="form-group">
+                          <label for="nombre">Nombre:</label>
+                          <input type="text" id="nombre" formControlName="nombre" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="apellido">Apellido paterno:</label>
+                          <input type="text" id="apellido" formControlName="apellido_p" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="apellido">Apellido materno:</label>
+                          <input type="text" id="apellido" formControlName="apellido_m" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="correo">Correo:</label>
+                          <input type="email" id="correo" formControlName="correo" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="evento">Organización:</label>
+                          <div class="select-wrapper">
+                              <select id="evento" formControlName="id_org" required>
+                                  <option value="">Seleccionar Organización</option>
+                                  <option *ngFor="let org of organizaciones" [value]="org.id">
+                                      {{ org.nombre }}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="content-grid-down">
+                      <h3>DATOS DE LA TARJETA</h3>
+                      <div formGroupName="tarjeta">
+                          <div class="form-group">
+                              <label for="numero">Número de tarjeta:</label>
+                              <input type="text" id="numero" formControlName="numero_tarjeta" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="cvv">CVV:</label>
+                              <input type="number" id="cvv" formControlName="cvv" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="expiración">Fecha de expiración:</label>
+                              <input id="expiración" formControlName="fecha_expiracion" type="date" required>
+                          </div>
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-submit">DONAR</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</main>
