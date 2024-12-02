@@ -108,8 +108,12 @@ export class CreateEventComponent implements OnInit{
   togglePostComponent() {
     this.showPostComponent = !this.showPostComponent;
   }
-
-  modificarEvento(){
-
+  logout() {
+    const confirmLogout = confirm("¿Estás seguro de que deseas cerrar sesión?");
+    if (confirmLogout) {
+      localStorage.removeItem("authToken");
+      window.location.href = "/login"; 
+    }
   }
+  
 }
