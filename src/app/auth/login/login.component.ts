@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
 import { AlertService } from '../../alert/alert.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,13 +32,13 @@ export class LoginComponent implements OnInit {
       this.orgService.loginOrganizacion(loginData).subscribe(
         (response) => {
           localStorage.setItem('authToken', response.token);
-          this.alertService.showSuccessAlert()
-          this.router.navigate(['/createevent'])
-          this.navigateTo('/createevent')
+          this.alertService.showSuccessAlert();
+          this.router.navigate(['/createevent']); 
+          this.navigateTo('/createevent');
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
-        this.alertService.showErrorAlert()
+          this.alertService.showErrorAlert();
         }
       );
     }
@@ -45,6 +46,6 @@ export class LoginComponent implements OnInit {
 
   navigateTo(route: string) {
     this.router.navigateByUrl(route);
-    return false; 
+    return false;
   }
 }

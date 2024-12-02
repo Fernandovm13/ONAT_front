@@ -30,9 +30,7 @@
   font-family: 'Trebuchet MS' ;
 }
 
-.nav-link:hover {
-  color: #da7400;
-}
+
 
 .nav-link.active {
   border-bottom: 2px solid #f39c12;
