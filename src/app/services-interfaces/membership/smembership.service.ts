@@ -17,6 +17,6 @@ export class SmembershipService {
   }
 
   obtenerMembresiaById(id: number): Observable<Imembership> {
-    return this.http.get<Imembership>(`${this.baseURL}/getM/${id}`);
+    return this.http.get<Imembership>(`${this.baseURL}/obtenerIdMembresia/${id}`);
   }
 }
