@@ -12,7 +12,7 @@ export class SdonationsService {
   constructor(private http: HttpClient) { }
 
   crearDonacion(data:any): Observable<any> {
-    return this.http.post(`${this.baseURL}/donaciones`, data);
+    return this.http.post(`${this.baseURL}/realizarDonacion`, data);
   }
 
   obtenerDonacion(): Observable<any> {
