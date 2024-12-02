@@ -12,6 +12,9 @@
           <p><strong>Hora de Finalización:</strong> {{ event.horaFinal }}</p>
           <p><strong>Dirección:</strong> {{ event.direccion }}</p>
           <p><strong>Descripción:</strong> {{ event.descripcion }}</p>
+          <button class="btn btn-edit" (click)="editarEvento(event.id)">
+            Editar
+          </button>
         </li>
       </ul>
     </div>

@@ -1,10 +1,11 @@
-
+/* General Container */
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* Button Styles */
 .btn {
     padding: 12px 24px;
     border: none;
@@ -15,7 +16,7 @@
 }
 
 .btn-donate {
-    background-color: #ff7f50; 
+    background-color: #ff7f50;
     color: #ffffff;
 }
 
@@ -23,52 +24,64 @@
     background-color: #E76F51;
 }
 
-/* Main Content Styles */
-.main-content {
-    flex: 1;
-    padding: 40px 0;
+.btn-submit {
+    width: 100%;
+    background-color: #E7AF3E;
+    color: black;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
 }
 
-h1 {
+.btn-submit:hover {
+    background-color: #ebaa2a;
+}
+
+h1, h2{
     text-align: center;
-    color: #003366; 
+    color: #003366;
     font-size: 2em;
     margin-bottom: 40px;
 }
 
 .content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
 
-/* Organization Info Styles */
 .org-info {
-    padding-right: 20px;
-}
-
-.org-logo {
-    width: 200px;
     margin-bottom: 20px;
 }
-
-.org-description {
-    color: #7d7d7d; 
-    font-size: 0.9em;
-    line-height: 1.8;
+.content-data{
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* Donation Form Styles */
+.content-image {
+    text-align: center;
+    margin-top: 20px;
+    grid-column: 1/2;
+}
+
+.content-image img {
+    max-width: 55rem; 
+    margin: 0 auto;
+}
+
 .donation-form {
-    background: #ffffff; 
+    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    grid-column: 2/3;
+    
 }
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
     gap: 20px;
 }
 
@@ -79,7 +92,7 @@ h1 {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: #003366; 
+    color: #003366;
     font-weight: 500;
 }
 
@@ -103,7 +116,7 @@ h1 {
     transform: translateY(-50%);
     pointer-events: none;
     font-size: 12px;
-    color: #7d7d7d; 
+    color: #7d7d7d;
 }
 
 /* Products Table Styles */
@@ -122,7 +135,7 @@ h1 {
 
 .products-table th {
     font-weight: 500;
-    color: #003366; 
+    color: #003366;
 }
 
 .quantity-select {
@@ -132,54 +145,30 @@ h1 {
     border-radius: 5px;
 }
 
-.form-note {
-    font-size: 0.8em;
-    color: #7d7d7d; 
-    margin-top: 10px;
+/* Event Details */
+.event-details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-submit {
-    width: 100%;
-    background-color: #E7AF3E; 
-    color: black; 
-    padding: 15px;
-    font-size: 1.1em;
-    margin-top: 20px;
+.event-details p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-    }
-    
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-right {
-        justify-content: center;
-    }
-    
-    .contact-info {
-        align-items: center;
-    }
-    
-    .contact-item {
-        justify-content: center;
-    }
+.event-details strong {
+    color: #2c3e50;
+    font-weight: bold;
 }
 
-/* Input States */
+/* Input and Select Focus States */
 input:focus,
 select:focus {
     outline: none;
@@ -187,7 +176,18 @@ select:focus {
     box-shadow: 0 0 0 2px rgba(119, 184, 232, 0.2);
 }
 
-/* Button Hover States */
-.btn-submit:hover {
-    background-color: #ebaa2a;
+/* Media Queries */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .content-image {
+        margin-top: 20px;
+        text-align: center;
+    }
 }

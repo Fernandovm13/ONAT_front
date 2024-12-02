@@ -1,9 +1,11 @@
 .catalog-content {
     max-height: 400px;
+    align-items: center;
     overflow-y: auto;  
     border: 1px solid #ccc; 
     padding: 10px; 
     background-color: rgb(255, 255, 255);
+    margin-top:  1rem;
   }
 
 
@@ -17,4 +19,69 @@
     border-radius: 15px;
   }
 
+.catalog-content .form-group{
+  margin-bottom: 1rem;
+}  
+
+.product-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.catalog-content input[type="checkbox"] {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-right: 1rem; 
+  transition: background-color 0.3s, border-color 0.3s;
   
+}
+
+
+catalog-content input[type="checkbox"]:checked {
+  background-color: rgb(253, 185, 122); 
+  border-color: rgb(252, 160, 80); 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.catalog-content input[type="checkbox"]:checked::after {
+  content: '✓'; 
+  font-size: 15px;
+  color: rgb(0, 0, 0); 
+}
+
+.catalog-content input[type="checkbox"]:hover {
+  border-color: rgb(252, 160, 80); 
+}
+
+
+.catalog-content label{
+  font-size: 1rem;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.catalog-content div{
+  margin-bottom: 1.5rem;
+}
+
+
+ .product-name{
+  flex: 1;
+  font-size: 1rem;
+}
+
+.product-price{
+font-size: 1rem;
+text-align: right;
+white-space: nowrap;
+}

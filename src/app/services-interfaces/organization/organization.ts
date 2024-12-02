@@ -1,7 +1,7 @@
 import { SafeUrl } from "@angular/platform-browser";
 
 export interface Organization {
-    id: number;
+  id: number;
   nombre: string;
   correo: string;
   cp: number;

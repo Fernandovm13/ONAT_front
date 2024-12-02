@@ -51,7 +51,6 @@ export class AddProductComponent implements OnInit {
         this.selectProducts.splice(index, 1); 
       }
     }
-    console.log('Productos seleccionados:', this.selectProducts);
     this.productosSeleccionados.emit(this.selectProducts);
   }
 

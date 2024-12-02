@@ -17,8 +17,8 @@
               </div>
               <div class="tier">{{ membresia?.plan }}</div>
               <ul class="benefits">
-                  <li *ngFor="let beneficio of obtenerBeneficios(membresia)">
-                      {{ beneficio }}
+                  <li *ngFor="let producto of productos">
+                        {{producto.nombreProducto}}
                   </li>
               </ul>
           </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import { Organization } from '../../services-interfaces/organization/organization';
 import { OrganizacionService } from '../../services-interfaces/organization/organization.service';
 import { CodigoPostalService } from '../../services-interfaces/cp/codigo-postal.service';
@@ -16,8 +16,10 @@ export class FormOrgComponent implements OnInit {
   cp: number = 0;
   colonias: string[] = [];
   selectedFile: File | null = null; // Archivo seleccionado
-  uploadMessage: string = '';
   colonia: string = '';
+  uploadMessage: string = '';
+  fileInput: any;
+
   
 
   constructor(
@@ -37,12 +39,16 @@ export class FormOrgComponent implements OnInit {
       rfc: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
-      imagen: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
     console.log(this.cp);
+  }
+
+
+  triggerFileInput(): void {
+    this.fileInput.nativeElement.click();
   }
 
   getPostalData(cpostal: any): void {

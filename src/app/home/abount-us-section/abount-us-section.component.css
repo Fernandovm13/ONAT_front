@@ -36,8 +36,8 @@
 }
 
 .content p {
-  font-size: 1.1em;
-  line-height: 1.6;
+  font-size: 1.5em;
+  line-height: 1.6rem;
   margin: 0;
 }
 
@@ -63,7 +63,7 @@
 
 .image-section img {
   width: 100%;
-  max-width: 300px;
+  max-width: 800px;
   height: auto;
   border-radius: 10px;
 }

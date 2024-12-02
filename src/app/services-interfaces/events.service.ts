@@ -30,8 +30,8 @@ export class EventsService {
     );
   }
 
-  ObtenerEventos(): Observable<EventsPage> {
-    return this.http.get<EventsPage>(
+  ObtenerEventos(): Observable<EventsPage[]> {
+    return this.http.get<EventsPage[]>(
       `${this.baseUrl}/api/events/obtenerEventos`
     );
   }
@@ -50,7 +50,7 @@ export class EventsService {
     });
   }
 
-  obtenerEventoPorOrg(id: number): Observable<any> {
+  obtenerEventoPorOrg(id: string): Observable<any> {
     return this.http.get(
       `${this.baseUrl}/api/events/encontrarEventosPorOrg/${id}`,
       {
@@ -58,6 +58,15 @@ export class EventsService {
       }
     );
   }
+
+  obtenerEventoPorId(_id: string): Observable<EventsPage> {
+    return this.http.get<EventsPage>(
+      `${this.baseUrl}/api/events/mostrarEventosPorID/${_id}`
+    );
+  }
+  
+  
+
 
   getToken(): string | null {
     return localStorage.getItem('authToken');

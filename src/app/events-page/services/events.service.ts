@@ -7,7 +7,8 @@ import { EventsPage } from '../events-page';
   providedIn: 'root',
 })
 export class EventsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://onatapi2.integrador.xyz';
+  private eventoEdit: EventsPage | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -30,13 +31,14 @@ export class EventsService {
     );
   }
 
-  ObtenerEventos(): Observable<EventsPage> {
-    return this.http.get<EventsPage>(
-      `${this.baseUrl}/api/events/obtenerEventos`
+  ObtenerEventos(): Observable<EventsPage[]> {
+    return this.http.get<EventsPage[]>(
+      `${this.baseUrl}/api/events/obtenerEventos`,
+      { headers: this.getAuthHeaders() }
     );
   }
 
-  actualizarEventos(id: number, data: Partial<EventsPage>): Observable<any> {
+  actualizarEventos(id: string, data: Partial<EventsPage>): Observable<any> {
     return this.http.put(
       `${this.baseUrl}/api/events/modificarEvento/${id}`,
       data,
@@ -44,19 +46,37 @@ export class EventsService {
     );
   }
 
-  eliminarEvento(id: number): Observable<any> {
+  eliminarEvento(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/api/events/eliminarEvento/${id}`, {
       headers: this.getAuthHeaders(),
     });
   }
 
-  obtenerEventoPorOrg(id: number): Observable<any> {
+  obtenerEventoPorOrg(id: string): Observable<any> {
     return this.http.get(
       `${this.baseUrl}/api/events/encontrarEventosPorOrg/${id}`,
       {
         headers: this.getAuthHeaders(),
       }
     );
+  }
+
+  obtenerEventoPorId(_id: string): Observable<EventsPage> {
+    return this.http.get<EventsPage>(
+      `${this.baseUrl}/api/events/mostrarEventosPorID/${_id}`
+    );
+  }
+
+  setEventoEdit(evento: EventsPage) {
+    this.eventoEdit = evento;
+  }
+
+  getEventoEdit(): EventsPage | null {
+    return this.eventoEdit;
+  }
+
+  clearEventoEdit() {
+    this.eventoEdit = null;
   }
 
   getToken(): string | null {

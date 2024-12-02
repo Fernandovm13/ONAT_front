@@ -7,7 +7,7 @@ import { Post } from '../post';
   providedIn: 'root',
 })
 export class PostsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://onatapi2.integrador.xyz';
 
   constructor(private http: HttpClient) {}
 
@@ -21,17 +21,32 @@ export class PostsService {
     throw new Error('Token no encontrado');
   }
 
-   createPost(
+  createPost(
     orgId: string[],
     productosIds: string[],
+    eventId: string
   ): Observable<Post> {
-    const postData ={
+    const postData = {
       orgId,
       productosIds,
-    }
-    console.log('dataForm', postData)
-     return this.http.post<Post>(`${this.baseUrl}/api/post/`, postData,
-      {  headers: this.getAuthHeaders(),}
-     ) ;
+      eventId,
+    };
+    console.log('dataForm', postData);
+    return this.http.post<Post>(`${this.baseUrl}/api/post/`, postData, {
+      headers: this.getAuthHeaders(),
+    });
   }
+
+  obtenerPost(_id: string): Observable<Post> {
+    return this.http.get<Post>(
+      `${this.baseUrl}/api/post/obtenerProductos/${_id}`
+    );
+  }
+  obtenerProductoPorPost(_id: string): Observable<Post> {
+    return this.http.get<Post>(
+      `${this.baseUrl}/api/post/obtenerProductosByIdPost/${_id}`
+    );
+  }
+
+  
 }

@@ -1,38 +1,15 @@
-<main class="main-content">
-  <link rel="stylesheet" href="events.component.css">
-  <div class="container">
-    <h1>Eventos</h1>
+<div class="container">
+  <h1>Eventos</h1>
 
-    <div class="events-grid">
-      <div class="event-card">
-        <div class="event-datetime">10/12/24 01:59</div>
-        <img src="imagen3.png" alt="Manos Unidas Logo" class="event-logo">
-        <h2 class="event-title">Alimento Digno</h2>
-        <p class="event-address">Av. Madero Mz.10 Lt 3</p>
-        <p class="event-organization">Manos Unidas</p>
-        <!-- Reemplazamos el (click) con routerLink -->
-        <button class="btn btn-donate" routerLink="'/eventdonation'">DONAR</button>
+  <div class="events-grid">
+    <div *ngFor="let event of eventData" class="event-card">
+      <div class="event-image">
+        <img src="eventImage.png" alt="">
       </div>
-
-      <div class="event-card">
-        <div class="event-datetime">10/12/24 01:59</div>
-        <img src="imagen3.png" alt="Manos Unidas Logo" class="event-logo">
-        <h2 class="event-title">Alimento Digno</h2>
-        <p class="event-address">Av. Madero Mz.10 Lt 3</p>
-        <p class="event-organization">Manos Unidas</p>
-        <!-- Reemplazamos el (click) conrouterLink-->
-        <button class="btn btn-donate" routerLink="'/eventdonation'">DONAR</button>
-      </div>
-
-      <div class="event-card">
-        <div class="event-datetime">10/12/24 01:59</div>
-        <img src="imagen3.png" alt="Manos Unidas Logo" class="event-logo">
-        <h2 class="event-title">Alimento Digno</h2>
-        <p class="event-address">Av. Madero Mz.10 Lt 3</p>
-        <p class="event-organization">Manos Unidas</p>
-        <!-- Reemplazamos el (click) conrouterLink-->
-        <button class="btn btn-donate" routerLink="'/eventdonation'">DONAR</button>
-      </div>
+      <div class="event-datetime">{{ event.fecha |  date: 'dd MMM, yyyy'}}</div>
+      <h2 class="event-title">{{ event.nombreEvento }}</h2>
+      <p class="event-address">{{ event.lugar }}</p>
+      <button class="btn btn-donate" [routerLink]="['/eventdonation', event._id]">DONAR</button>
     </div>
   </div>
-</main>
+</div>

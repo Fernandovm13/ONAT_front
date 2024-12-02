@@ -13,7 +13,7 @@ export class OrganizacionService {
   constructor(private http: HttpClient) {}
 
   crearOrganizacion(data: FormData): Observable<Organization> {
-    return this.http.post<Organization>(`${this.baseUrl}/crear_org`, data);
+    return this.http.post<Organization>(`${this.baseUrl}/organizaciones`, data);
   }
 
   loginOrganizacion(login: Organization): Observable<any> {
@@ -30,7 +30,7 @@ export class OrganizacionService {
 
   obtenerOrganizaciones(): Observable<Organization[]> {
     return this.http.get<Organization[]>(
-      `${this.baseUrl}/obtenerOrg`
+      `${this.baseUrl}/organizaciones/obtenerOrg`
     );
   }
 
@@ -43,7 +43,7 @@ export class OrganizacionService {
       `Bearer ${localStorage.getItem('authToken')}`
     );
     return this.http.put(
-      `${this.baseUrl}/editarOrg/${id}`,
+      `${this.baseUrl}/actualizar_organizaciones/${id}`,
       data,
       { headers }
     );
@@ -54,8 +54,18 @@ export class OrganizacionService {
       'Authorization',
       `Bearer ${localStorage.getItem('authToken')}`
     );
-    return this.http.delete(`${this.baseUrl}/eliminarOrg/${id}`, {
+    return this.http.delete(`${this.baseUrl}/eliminar_organizacion/${id}`, {
       headers,
     });
+  }
+  validarToken(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(
+      `${this.baseUrl},/organizaciones/validarToken`,
+      headers
+    );
   }
 }

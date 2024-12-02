@@ -2,15 +2,23 @@
   <!-- Formulario para seleccionar la fecha de publicación -->
   <form [formGroup]="productsForm">
     <!-- Lista de productos para seleccionar -->
-    <div class="form-group">
+    <div class="catalog-content">
       <label for="productos">Seleccionar Productos:</label>
-      <div *ngFor="let product of productsData">
+      <div *ngFor="let product of productsData" class="product-row">
         <input
           type="checkbox"
           [value]="product._id"
           (change)="onCheckboxChange($event)"
         />
-        {{ product.nombreProducto }}
+        <span class="product-name">
+          {{ product.nombreProducto }}
+        </span>
+        cantidad<input id="cantidad-{{ product._id }}" type="number" [value]="product.cantidad">
+        <span>Kg</span>
+        <span class="product-price">
+
+          $ {{product.precioBase}} MXN
+        </span>
       </div>
     </div>
   </form>
