@@ -20,6 +20,9 @@ export class EventDonationComponent implements OnInit {
   selectedEvent: EventsPage | null = null;
   selectPost: Post | null = null;
   productos: any[] = [];
+  eventId: any
+  orgId: any
+  
 
   donacionForm: FormGroup;
   totalPrecio: Number = 0;
@@ -34,19 +37,38 @@ export class EventDonationComponent implements OnInit {
   ) {
     this.donacionForm = this.fb.group({
       nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
+      apellido_p: ['', Validators.required],
+      apellido_m: ['', Validators.required],
       correo: ['', Validators.required],
-      tipodonacion: ['', Validators.required],
-      direccion: ['', Validators.required],
-      descripcion: ['', Validators.required],
+      nacionalidad:['Mexicana'],
+      tipo_donacion: ['unica'],
+      tarjeta: this.fb.group({
+        numero_tarjeta: [
+          '',
+          // [Validators.required, Validators.pattern('^[0-9]{16}$')],
+        ],
+        cvv: [
+          '',
+          // [
+          //   Validators.required,
+          //   Validators.minLength(3),
+          //   Validators.maxLength(3),
+          // ],
+        ],
+        fecha_expiracion: [
+          '',
+          // [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/[0-9]{2}$')],
+        ],        
+      }),
     });
   }
 
   ngOnInit(): void {
-    const eventId = this.activatedRoute.snapshot.paramMap.get('id');
+     this.eventId = this.activatedRoute.snapshot.paramMap.get('id');
     const postId = this.activatedRoute.snapshot.paramMap.get('id');
-    if (eventId) {
-      this.obtenerEventoPorId(eventId);
+    
+    if (this.eventId) {
+      this.obtenerEventoPorId(this.eventId);
     } else {
       console.error('ID no encontrado en la ruta');
     }
@@ -58,17 +80,56 @@ export class EventDonationComponent implements OnInit {
     }
   }
 
+  realizarDonacion() {
+    const cantidad = this.totalPrecio;
+    const idEvento = this.eventId;
+    const idOrg = this.orgId
+
+    if (this.donacionForm.valid) {
+      // Normalizar datos
+      const formData = {
+        ...this.donacionForm.value,
+        cantidad,
+        idEvento,
+        tarjeta: {
+          ...this.donacionForm.value.tarjeta,
+          numero_tarjeta: this.donacionForm.value.tarjeta.numero_tarjeta.replace(/\s+/g, ''), // Eliminar espacios
+        },
+        id_org: idOrg
+      };
+  
+      console.log('Datos enviados:', formData);
+  
+      // Llamar al servicio para crear la donación
+      this.donationService.crearDonacion(formData).subscribe(
+        (response) => {
+          console.log('La donación se creó correctamente:', response);
+          alert('La donación se ha creado correctamente.');
+        },
+        (error) => {
+          console.error('Error al crear la donación:', error);
+        }
+      );
+    } else {
+      console.error('Formulario inválido');
+      console.log(this.donacionForm.value)
+    }
+  }
+  
+
   obtenerEventoPorId(id: string): void {
     this.eventsService.obtenerEventoPorId(id).subscribe(
       (data: EventsPage) => {
         console.log('Evento encontrado:', data);
         this.selectedEvent = data; // Almacena el evento encontrado
+        this.orgId = data.idOrg;
       },
       (error) => {
         console.error('Error al obtener el evento:', error);
       }
     );
   }
+  
 
   obtenerListaProductos(id: string): void {
     this.postService.obtenerProductoPorPost(id).subscribe(
@@ -79,10 +140,7 @@ export class EventDonationComponent implements OnInit {
           // Accede a los productos del primer post
           this.productos = response.posts[0].producto;
 
-          this.productos.forEach((producto: { _id: string }) => {
-            const productoId = producto._id;
-            console.log('ID del producto:', productoId);
-          });
+          
         } else {
           console.log('No se encontraron posts');
         }
@@ -95,19 +153,16 @@ export class EventDonationComponent implements OnInit {
 
   calcularPrecioTotal(): void {
     this.productos.forEach((product) => {
+      console.log(product.productoId)
       const quantitySelect = <HTMLInputElement>(
-        document.querySelector(`#cantidad-${product._id}`)
+        document.querySelector(`#cantidad-${product.productoId._id}`)
       );
       const cantidadSeleccionada = parseInt(quantitySelect.value, 10);
-      product.selectQuantity = Math.min(cantidadSeleccionada, 3);
+      product.productoId.selectQuantity = Math.min(cantidadSeleccionada, 3);
     });
     this.totalPrecio = this.productos.reduce((total, product) => {
-      return total + product.precioBase * product.selectQuantity;
+      return total + product.productoId.precioBase * product.productoId.selectQuantity;
     }, 0);
-    console.log("precio total", this.totalPrecio)
-  }
-
-  realizarDonacion(): void {
-    this.donationService.realizarDonacion
+    console.log('precio total', this.totalPrecio);
   }
 }

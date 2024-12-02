@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class SdonationsService {
 
-  private baseURL = "http://127.0.0.1:5000";
+  private baseURL = "https://onatapi.integrador.xyz/membresias";
 
   constructor(private http: HttpClient) { }
 
   crearDonacion(data:any): Observable<any> {
-    return this.http.post(`${this.baseURL}/donaciones`, data);
+    return this.http.post(`${this.baseURL}/donaciones/realizarDonacion`, data);
   }
 
   obtenerDonacion(): Observable<any> {

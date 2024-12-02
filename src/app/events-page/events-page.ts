@@ -6,5 +6,6 @@ export interface EventsPage {
   horaFinal: string;
   lugar: string;
   descripcion: string;
-  direccion: Date
+  direccion: Date;
+  idOrg:string
 }

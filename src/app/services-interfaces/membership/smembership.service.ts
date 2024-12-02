@@ -8,7 +8,7 @@ import { Imembership } from './imembership';
 })
 export class SmembershipService {
 
-  private baseURL = "http://127.0.0.1:5000";
+  private baseURL = "https://onatapi.integrador.xyz/membresias";
 
   constructor(private http: HttpClient) { }
 

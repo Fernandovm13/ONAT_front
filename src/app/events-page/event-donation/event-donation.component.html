@@ -39,20 +39,40 @@
         <div class="form-row">
           <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+            <input
+              type="text"
+              formControlName="nombre"
+              required
+            />
           </div>
           <div class="form-group">
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required />
+            <label for="apellido">Apellido Paterno:</label>
+            <input
+              type="text"
+              formControlName="apellido_p"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido Materno:</label>
+            <input
+              type="text"
+              formControlName="apellido_m"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="correo">Correo electrónico:</label>
+            <input
+              type="email"
+              id="correo"
+              required
+              formControlName="correo"
+            />
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="correo">Correo electrónico:</label>
-          <input type="email" id="correo" name="correo" required />
-        </div>
-
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="tipodonacion">Tipo de donación:</label>
           <div class="select-wrapper">
             <select id="tipodonacion" name="tipodonacion" required>
@@ -60,7 +80,7 @@
               <option value="membresia">Membresía</option>
             </select>
           </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label>Lista de productos:</label>
@@ -74,10 +94,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let product of productos">
-                <td>{{ product.nombreProducto }}</td>
+                <td>{{ product.productoId.nombreProducto }}</td>
                 <td>
                   <select
-                    id="cantidad-{{ product._id }}"
+                    id="cantidad-{{ product.productoId._id }}"
                     class="quantity-select"
                     (change)="calcularPrecioTotal()"
                   >
@@ -87,7 +107,7 @@
                     <option value="3">3 kg</option>
                   </select>
                 </td>
-                <td>$ {{ product.precioBase }} MXN</td>
+                <td>$ {{ product.productoId.precioBase }} MXN</td>
               </tr>
             </tbody>
           </table>
@@ -96,6 +116,33 @@
           <p class="form-note">
             *Puedes seleccionar una cantidad máxima de 3 pzs. de un producto
           </p>
+        </div>
+        <div class="content-grid-down">
+          <h3>DATOS DE LA TARJETA</h3>
+          <div formGroupName="tarjeta">
+            <div class="form-group">
+              <label for="numero">Número de tarjeta:</label>
+              <input
+                type="text"
+                id="numero"
+                formControlName="numero_tarjeta"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV:</label>
+              <input type="number" id="cvv" formControlName="cvv" required />
+            </div>
+            <div class="form-group">
+              <label for="expiración">Fecha de expiración:</label>
+              <input
+                id="expiración"
+                formControlName="fecha_expiracion"
+                type="month"
+                required
+              />
+            </div>
+          </div>
         </div>
 
         <button type="submit" class="btn btn-submit">DONAR</button>

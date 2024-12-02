@@ -7,7 +7,7 @@ import { Post } from '../post';
   providedIn: 'root',
 })
 export class PostsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://onatapi2.integrador.xyz';
 
   constructor(private http: HttpClient) {}
 

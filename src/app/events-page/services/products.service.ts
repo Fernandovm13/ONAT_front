@@ -6,11 +6,13 @@ import { Products } from '../products';
   providedIn: 'root',
 })
 export class productsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://onatapi2.integrador.xyz';
   constructor(private http: HttpClient) {}
 
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('authToken');
+    console.log(token);
+    
     if (token) {
       return new HttpHeaders({
         Authorization: `Bearer ${token}`,
@@ -20,9 +22,9 @@ export class productsService {
   }
 
   verCatalogo(): Observable<Products[]> {
-    return this.http.get<Products[]>(`${this.baseUrl}/api/product/`, {
-      headers: this.getAuthHeaders(),
-    });
+    return this.http.get<Products[]>(`${this.baseUrl}/api/product/`,
+      { headers: this.getAuthHeaders() }
+    );
   }
 
   mostrarProductos(_id:string): Observable<Products>{

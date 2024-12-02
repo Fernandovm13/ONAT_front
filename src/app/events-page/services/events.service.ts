@@ -7,7 +7,7 @@ import { EventsPage } from '../events-page';
   providedIn: 'root',
 })
 export class EventsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://onatapi2.integrador.xyz';
   private eventoEdit: EventsPage | null = null;
 
   constructor(private http: HttpClient) {}
@@ -33,7 +33,8 @@ export class EventsService {
 
   ObtenerEventos(): Observable<EventsPage[]> {
     return this.http.get<EventsPage[]>(
-      `${this.baseUrl}/api/events/obtenerEventos`
+      `${this.baseUrl}/api/events/obtenerEventos`,
+      { headers: this.getAuthHeaders() }
     );
   }
 
@@ -65,7 +66,7 @@ export class EventsService {
       `${this.baseUrl}/api/events/mostrarEventosPorID/${_id}`
     );
   }
-  
+
   setEventoEdit(evento: EventsPage) {
     this.eventoEdit = evento;
   }
@@ -73,7 +74,6 @@ export class EventsService {
   getEventoEdit(): EventsPage | null {
     return this.eventoEdit;
   }
-
 
   clearEventoEdit() {
     this.eventoEdit = null;

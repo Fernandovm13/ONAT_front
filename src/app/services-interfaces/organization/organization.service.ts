@@ -8,7 +8,7 @@ import { Organization } from './organization';
   providedIn: 'root',
 })
 export class OrganizacionService {
-  private baseUrl = 'http://127.0.0.1:5000';
+  private baseUrl = 'https://onatapi.integrador.xyz/organizaciones';
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +17,7 @@ export class OrganizacionService {
   }
 
   loginOrganizacion(login: Organization): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/organizaciones/login`, login);
+    return this.http.post<any>(`${this.baseUrl}/login`, login);
   }
 
   getToken(): string | null {
