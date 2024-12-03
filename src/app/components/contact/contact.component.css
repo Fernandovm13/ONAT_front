@@ -1,13 +1,22 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-.container.contact-content {
+.contact-content {
   background-color: #5DB0E6;
-  color: #333;
-  padding: 50px 10px;
-  margin: 20px 10px;
+  padding: 40px;
+  margin: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
   border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info {
@@ -16,70 +25,86 @@
 
 .contact-info .logo {
   margin-bottom: 20px;
-  width: 100px;
+  width: 120px;  
   height: auto;
 }
 
 .contact-info p {
-  font-size: 1em;
-  line-height: 1.5;
+  font-size: 1.1em;
+  line-height: 1.7;
   color: #333;
+  letter-spacing: 0.03em;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  word-wrap: break-word;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .contact-details {
   text-align: center;
-  margin-bottom: 20px; 
-}
-
-.contact-form h2 {
-  font-size: 1.5em;
-  color: #333;
-  margin-bottom: 15px;
-  text-align: center;
+  margin-bottom: 30px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 15px;
   justify-content: center;
 }
 
 .icon img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .contact-button-wrapper {
   display: flex;
   justify-content: center;
-  width: 100%; 
+  width: 100%;
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  font-size: 1.1em;
 }
 
 .btn-donate {
   background-color: #E5863A;
   color: white;
-  font-size: 1.2em;
-  padding: 15px 30px;
 }
 
 .btn-donate:hover {
   background-color: #e4a62a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;  
+    gap: 20px;
+  }
+
+  .contact-info p {
+    max-width: 100%; 
+    font-size: 1em;
+  }
 }

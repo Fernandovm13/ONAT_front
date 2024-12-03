@@ -1,36 +1,40 @@
 /* How We Work Section Styles */
 .how-we-work {
-    background-color: #B2D5F1;
-    padding: 10px 0;
-    margin: 10px;
-    border-radius: 10px;
-  }
+  background: radial-gradient(
+    circle,
+    rgba(135, 193, 240, 1) 59%,
+    rgba(46, 160, 224, 0.6699054621848739) 100%
+  );
+
+  margin: 10px;
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+  height: auto;
+  width: auto;
   
-  .how-we-work h2 {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .work-steps {
-    display: flex;
-    justify-content: space-around;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .work-step {
-    text-align: center;
-  }
-  
-  .step-icon {
-    font-size: 3em;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+  /* border-radius: 10px; */
+}
+
+.how-we-work h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.work-steps {
+  display: flex;
+  justify-content: space-around;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.work-step {
+  text-align: center;
+}
+
+.step-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}

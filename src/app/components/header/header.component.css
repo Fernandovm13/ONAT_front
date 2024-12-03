@@ -1,13 +1,16 @@
 .navbar {
-  width: 100%;
   background-color: #5DB0E6;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.144) !important;
+  position: relative;
+  z-index: 1; /* Asegúrate de que la sombra no esté oculta */
 }
+
 
 .container-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 

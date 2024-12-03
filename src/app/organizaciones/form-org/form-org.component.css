@@ -25,11 +25,10 @@
     background-color: #E76F51;
 }
 
-/* Main Content Styles */
 .main-content {
     flex: 1;
     padding: 40px 0;
-    background-color: #B2D5F1; 
+    background-color: #e9e9e98e; 
 }
 
 .registration-header {
@@ -49,7 +48,7 @@
 }
 
 .registration-form {
-    background-color: #E9F3FB;
+    background-color: #b8daf7;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -58,7 +57,7 @@
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 60px;
 }
 
 .form-group {
@@ -74,16 +73,17 @@
 
 .form-group input, select {
     width: 100%;
-    padding: 12px;
+    padding: 7px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box;
     background-color: #f5f5f5;
 }
 .upload-area {
-    height: 200px;
+    height: 170px;
     text-align: center;
-    padding: 1.5rem;
+    padding: 0.6rem;
     position: relative;
     cursor: pointer;
     background-color: #f5f5f5;
@@ -130,7 +130,7 @@
     justify-content: center;
     width: 100%;
     height: 200px;
-    border: 2px dashed #ccc;
+    border: 2px dashed #eba926;
     border-radius: 10px;
     background-color: #f9f9f9;
     cursor: pointer;
@@ -138,7 +138,7 @@
   }
   
   .upload-area:hover {
-    background-color: #e6e6e6;
+    background-color: #dd8826;
   }
   
   .upload-icon {
@@ -167,7 +167,7 @@
 /* Input States */
 input:focus {
     outline: none;
-    border-color: #77b8e8; 
+    border-color: #dd8826; 
     box-shadow: 0 0 0 2px rgba(119, 184, 232, 0.2);
 }
 
@@ -178,6 +178,6 @@ input:disabled {
 
 /* Upload Area Hover State */
 .upload-area:hover {
-    border-color: #77b8e8; 
+    border-color: #dd8826; 
     background-color: #fafafa;
 }
