@@ -126,12 +126,6 @@ export class MembershipDonationComponent implements OnInit {
   }
 
   obtenerBeneficios(membership: Imembership): string[] {
-    console.log(membership);
-    return membership.contenido
-      ? membership.contenido.map(
-          (contenido) =>
-            `Producto ID: ${contenido.idProducto}, Cantidad: ${contenido.cantidad}`
-        )
-      : [];
+    return membership.contenido ? Object.values(membership.contenido) : [];
   }
 }

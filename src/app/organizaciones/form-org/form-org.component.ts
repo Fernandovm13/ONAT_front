@@ -39,6 +39,7 @@ export class FormOrgComponent implements OnInit {
       rfc: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
+      imagen: ['', [Validators.required]]
     });
   }
 
@@ -84,14 +85,16 @@ export class FormOrgComponent implements OnInit {
       Object.keys(this.orgForm.value).forEach((key) => {
         formData.append(key, this.orgForm.value[key]);
       });
+
   
       this.organizationService.crearOrganizacion(formData).subscribe({
-        next: (response: Organization) => {
+        next: (response) => {
           console.log('Organización creada exitosamente:', response);
           alert('La organización se ha creado correctamente.');
         },
         error: (error) => {
           console.error('Error al crear la organización', error);
+          
           alert('Hubo un error al crear la organización');
         },
       });
@@ -112,11 +115,11 @@ export class FormOrgComponent implements OnInit {
   }
 
   uploadFile(): void {
-    if (this.selectedFile) {
+    if (this.selectedFile) {9
       this.drive.uploadFile(this.selectedFile).subscribe({
         next: (response) => {
           const googleDriveUrl = response.google_drive_url; 
-          console.log(googleDriveUrl)
+          
           this.orgForm.patchValue({ imagen: googleDriveUrl });  
           this.uploadMessage = 'Archivo subido y enlace asignado correctamente.';
         },

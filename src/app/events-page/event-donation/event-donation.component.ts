@@ -8,6 +8,7 @@ import { PostsService } from '../services/posts.service';
 import { Post } from '../post';
 import { SdonationsService } from '../../services-interfaces/donation/sdonations.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../../alert/alert.service';
 
 @Component({
   selector: 'app-event-donation',
@@ -33,7 +34,8 @@ export class EventDonationComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private eventsService: EventsService,
     private postService: PostsService,
-    private donationService: SdonationsService
+    private donationService: SdonationsService,
+    private alertService: AlertService
   ) {
     this.donacionForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -104,7 +106,7 @@ export class EventDonationComponent implements OnInit {
       this.donationService.crearDonacion(formData).subscribe(
         (response) => {
           console.log('La donación se creó correctamente:', response);
-          alert('La donación se ha creado correctamente.');
+          this.alertService.showAlert('thank-you');
         },
         (error) => {
           console.error('Error al crear la donación:', error);

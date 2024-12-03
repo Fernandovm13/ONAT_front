@@ -24,6 +24,7 @@ export class DonationHistoryComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error al cargar donaciones:', error);
+        console.log(this.donaciones)
       },
     });
   }

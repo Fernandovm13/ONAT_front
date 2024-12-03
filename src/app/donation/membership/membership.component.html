@@ -1,34 +1,33 @@
 <main class="main-content">
-    <div class="container">
-      <h1>Conviértete en Madrina/Padrino</h1>
-  
-      <div class="membership-grid">
-        <div
-          class="membership-card"
-          *ngFor="let membership of memberships"
-          [ngClass]="{
-            'Plata': membership.plan === 'Plata',
-            'Oro': membership.plan === 'Oro',
-            'Diamante': membership.plan === 'Diamante'
-          }"
-        >
-          <h2>Membresía</h2>
-          <div class="price">
-            <span class="currency">$</span>
-            <span class="amount">{{ membership.costo | number: '1.0-0' }}</span>
-            <span class="cents">.00</span>
-          </div>
-          <div class="tier">{{ membership.plan }}</div>
-          <ul class="benefits">
-            <li *ngFor="let benefit of membership.contenido">
-              {{benefit.nombreProducto}}
-            </li>
-          </ul>
-          <button class="btn btn-acquire" (click)="irADonacion(membership.id)">
-            ADQUIRIR
-          </button>
+  <div class="container">
+    <h1>Conviértete en Madrina/Padrino</h1>
+
+    <div class="membership-grid">
+      <div
+        class="membership-card"
+        *ngFor="let membership of memberships"
+        [ngClass]="{
+          'Plata': membership.plan === 'Plata',
+          'Oro': membership.plan === 'Oro',
+          'Diamante': membership.plan === 'Diamante'
+        }"
+      >
+        <h2>Membresía</h2>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">{{ membership.costo | number: '1.0-0' }}</span>
+          <span class="cents">.00</span>
         </div>
+        <div class="tier">{{ membership.plan }}</div>
+        <ul class="benefits">
+          <li *ngFor="let benefit of obtenerBeneficios(membership)">
+            {{ benefit }}
+          </li>
+        </ul>
+        <button class="btn btn-acquire" (click)="irADonacion(membership.id)">
+          ADQUIRIR
+        </button>
       </div>
     </div>
-  </main>
-  
+  </div>
+</main>
