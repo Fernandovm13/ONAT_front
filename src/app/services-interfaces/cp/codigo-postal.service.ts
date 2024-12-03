@@ -7,7 +7,7 @@ import { CodigoPostal, CodigoPostalResponse } from './codigo-postal';
   providedIn: 'root'
 })
 export class CodigoPostalService {
-  private apiUrl = '/codigo_postal';
+  private apiUrl = 'https://onatapi.integrador.xyz/codigo_postal';
   private apiKey = 'ab716732e7bc9c7aab8e35ae879d397e920b1d61';
 
   constructor(private http: HttpClient) {}
