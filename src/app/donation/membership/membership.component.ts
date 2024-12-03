@@ -12,6 +12,7 @@ import { Products } from '../../events-page/products';
 })
 export class MembershipComponent implements OnInit {
   memberships: Imembership[] = [];
+  
 
   constructor(
     private membershipService: SmembershipService,
@@ -25,44 +26,17 @@ export class MembershipComponent implements OnInit {
 
   mostrarMembresias(): void {
     this.membershipService.getMembresias().subscribe({
-        next: (data: Imembership[]) => {
-            this.memberships = data;
-
-            // Iterar sobre memberships y contenido
-            this.memberships.forEach((membership) => {
-                const contenidos = membership.contenido; // Acceder al contenido
-
-                contenidos.forEach((contenido) => {
-                    // Llamar al servicio con idProducto
-                    this.productService.mostrarProductos(contenido.idProducto).subscribe({
-                        next: (producto: Products) => {
-                            // console.log(producto);
-                            // Asignar nombreProducto al contenido correspondiente
-                            contenido.nombreProducto = producto.nombreProducto; // Ajusta según la estructura de `Products`
-                        },
-                        error: (error) => {
-                            console.error(`Error obteniendo producto ${contenido.idProducto}:`, error);
-                        }
-                    });
-                });
-            });
-
-            console.log('Membresías procesadas: ', this.memberships);
-        },
-        error: (error) => {
-            console.error('No se pudieron mostrar las membresías: ', error);
-        },
-    });
-}
-
-
+      next: (data: Imembership[]) => {
+        this.memberships = data;
+        console.log('Membresias: ', this.memberships);
+      },
+      error: (error) => {
+        console.error('No se pudieron mostrar las memmbresias: ', error);
+      }
+    })
+  }
   obtenerBeneficios(membership: Imembership): string[] {
-    return membership.contenido
-      ? membership.contenido.map(
-          (contenido) =>
-            `Producto ID: ${contenido.idProducto}, Cantidad: ${contenido.cantidad}`
-        )
-      : [];
+    return membership.contenido ? Object.values(membership.contenido) : [];
   }
 
   irADonacion(id: number) {

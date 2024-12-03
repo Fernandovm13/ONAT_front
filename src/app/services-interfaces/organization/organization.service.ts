@@ -13,7 +13,8 @@ export class OrganizacionService {
   constructor(private http: HttpClient) {}
 
   crearOrganizacion(data: FormData): Observable<Organization> {
-    return this.http.post<Organization>(`${this.baseUrl}/organizaciones`, data);
+    console.log(data);
+    return this.http.post<Organization>(`${this.baseUrl}/crear_org`, data);
   }
 
   loginOrganizacion(login: Organization): Observable<any> {
@@ -30,7 +31,7 @@ export class OrganizacionService {
 
   obtenerOrganizaciones(): Observable<Organization[]> {
     return this.http.get<Organization[]>(
-      `${this.baseUrl}/organizaciones/obtenerOrg`
+      `${this.baseUrl}/obtenerOrg`
     );
   }
 

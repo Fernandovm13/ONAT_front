@@ -43,7 +43,9 @@ export class OrganizationalHistoryComponent implements OnInit {
           console.log('Datos de la org', this.eventData);
         },
         (error) => {
-          console.error('Error al cargar los datos de la org: ');
+          console.error('Error al cargar los datos de la org: ', error);
+          console.log(error);
+          
         }
       );
     }

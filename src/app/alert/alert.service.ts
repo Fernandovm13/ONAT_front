@@ -19,7 +19,7 @@ export class AlertService {
 
   showErrorAlert(): void {
     Swal.fire({
-      title: 'Inicio de sesión fallido',
+      title: 'Inicio de sesión fallido, correo y contraseña incorrectas',
       html: `<div class="emoji"><span>😵‍💫</span></div>`,
       confirmButtonText: 'Intente de nuevo',
       customClass: {

@@ -17,8 +17,8 @@
               </div>
               <div class="tier">{{ membresia?.plan }}</div>
               <ul class="benefits">
-                  <li *ngFor="let producto of productos">
-                        {{producto.nombreProducto}}
+                  <li *ngFor="let benefit of obtenerBeneficios(membresia)">
+                        {{benefit}}
                   </li>
               </ul>
           </div>
@@ -68,7 +68,7 @@
                           </div>
                           <div class="form-group">
                               <label for="expiración">Fecha de expiración:</label>
-                              <input id="expiración" formControlName="fecha_expiracion" type="date" required>
+                              <input id="expiración" formControlName="fecha_expiracion" type="month" required>
                           </div>
                       </div>
                   </div>
