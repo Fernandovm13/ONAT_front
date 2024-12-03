@@ -38,39 +38,29 @@ export class EventDonationComponent implements OnInit {
     private alertService: AlertService
   ) {
     this.donacionForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      apellido_p: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-      ],
-      apellido_m: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-      ],
-      correo: ['', [Validators.required, Validators.email]],
-      nacionalidad: ['Mexicana'],
+      nombre: ['', Validators.required],
+      apellido_p: ['', Validators.required],
+      apellido_m: ['', Validators.required],
+      correo: ['', Validators.required],
+      nacionalidad:['Mexicana'],
       tipo_donacion: ['unica'],
       tarjeta: this.fb.group({
         numero_tarjeta: [
           '',
-          [Validators.required, Validators.pattern('^[0-9]{16}$')],
+          // [Validators.required, Validators.pattern('^[0-9]{16}$')],
         ],
         cvv: [
           '',
-          [
-            Validators.required,
-            Validators.pattern('^[0-9]{3}$'),
-            Validators.minLength(3),
-            Validators.maxLength(3),
-          ],
+          // [
+          //   Validators.required,
+          //   Validators.minLength(3),
+          //   Validators.maxLength(3),
+          // ],
         ],
         fecha_expiracion: [
           '',
-          [
-            Validators.required,
-            Validators.pattern('^(0[1-9]|1[0-2])/[0-9]{2}$'),
-          ],
-        ],
+          // [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/[0-9]{2}$')],
+        ],        
       }),
     });
   }
@@ -92,7 +82,6 @@ export class EventDonationComponent implements OnInit {
     }
   }
 
-
   realizarDonacion() {
     const cantidad = this.totalPrecio;
     const idEvento = this.eventId;
@@ -106,6 +95,7 @@ export class EventDonationComponent implements OnInit {
         idEvento,
         tarjeta: {
           ...this.donacionForm.value.tarjeta,
+          numero_tarjeta: this.donacionForm.value.tarjeta.numero_tarjeta.replace(/\s+/g, ''), // Eliminar espacios
         },
         id_org: idOrg
       };
@@ -127,7 +117,6 @@ export class EventDonationComponent implements OnInit {
       console.log(this.donacionForm.value)
     }
   }
-  
 
   obtenerEventoPorId(id: string): void {
     this.eventsService.obtenerEventoPorId(id).subscribe(
