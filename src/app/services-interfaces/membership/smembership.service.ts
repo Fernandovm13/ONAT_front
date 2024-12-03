@@ -13,10 +13,10 @@ export class SmembershipService {
   constructor(private http: HttpClient) { }
 
   getMembresias(): Observable<Imembership[]> {
-    return this.http.get<Imembership[]>(`${this.baseURL}/membresias/getM`);
+    return this.http.get<Imembership[]>(`${this.baseURL}/getM`);
   }
 
   obtenerMembresiaById(id: number): Observable<Imembership> {
-    return this.http.get<Imembership>(`${this.baseURL}/membresias/obtenerIdMembresia/${id}`);
+    return this.http.get<Imembership>(`${this.baseURL}/obtenerIdMembresia/${id}`);
   }
 }
